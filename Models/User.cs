@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using TravelPal_Newton.Enums;
 using TravelPal_Newton.Interfaces;
 
 namespace TravelPal_Newton.Models
