@@ -9,7 +9,7 @@
     <Window.Resources>
         <BitmapImage x:Key="Logo" UriSource="C:\Users\User\repos\Newton\TravelPal-Newton\MicrosoftTeams-image.png"/>
         <Style x:Key="Buttons" TargetType="Button">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="22"/>
             <Setter Property="Width" Value="160"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="Margin" Value="0 8"/>
@@ -18,7 +18,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="6" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="Transparent" Padding="15">
+                        <Border CornerRadius="6" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="white" >
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -50,11 +50,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -68,7 +70,10 @@
             <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="3" Grid.Column="2" Margin="5">
                 <Image Source="{StaticResource Logo}"/>
             </StackPanel>
-            <Button Grid.Column="2" Grid.Row="5" Content="Sign in" Style="{StaticResource Buttons}"/>
+            <Button Name="BtnSignIn" Margin="10"  Grid.Column="1" Grid.Row="5" Grid.RowSpan="1"  Grid.ColumnSpan="3" Content="Sign in" Style="{StaticResource Buttons}" Click="BtnSignIn_Click"/>
+            <Label Name="lblFeedback" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" Content="Feedback" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Name="lblJoinUs" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Content="Not a member yet?" FontSize="20" VerticalContentAlignment="Center"/>
+            <Button Name="BtnRegister" Grid.Row="1" Style="{StaticResource Buttons}" Content="Register" Grid.ColumnSpan="1" Width="120" Click="BtnRegister_Click"/>
         </Grid>
     </Border>
 </Window>
