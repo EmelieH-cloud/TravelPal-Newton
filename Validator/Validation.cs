@@ -2,8 +2,9 @@
 
 namespace TravelPal_Newton.Validator
 {
-    class Validation
+    public class Validation
     {
+        public Validation() { }
 
         //InputLength()
         // Användarnamn och lösenord måste vara minst 6 symboler kort, och högst 13 symboler långt. 

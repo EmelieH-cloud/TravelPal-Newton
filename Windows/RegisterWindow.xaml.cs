@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using TravelPal_Newton.Enums;
+using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton.Windows
 {
@@ -9,6 +10,8 @@ namespace TravelPal_Newton.Windows
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        Validation validation = new Validation();
+
         public RegisterWindow()
         {
             InitializeComponent();
@@ -21,6 +24,9 @@ namespace TravelPal_Newton.Windows
 
         private void BtnSignUpReady_Click(object sender, RoutedEventArgs e)
         {
+            string username = txtRequestedUsername.Text;
+            string password = txtRequestedPassword.Text;
+
 
         }
     }
