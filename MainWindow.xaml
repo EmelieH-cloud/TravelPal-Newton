@@ -5,26 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800">
+        Title="MainWindow" Height="550" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <BitmapImage x:Key="Logo" UriSource="C:\Users\User\repos\Newton\TravelPal-Newton\MicrosoftTeams-image.png"/>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="3" Grid.Column="2" Margin="5">
-            <Image Source="{StaticResource Logo}"/>
-        </StackPanel>
-    </Grid>
+    <Border CornerRadius="35" BorderThickness="24">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color= "MintCream" Offset="0.2"/>
+                <GradientStop Color="#8a7af0" Offset="0.7"/>
+                <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid Name="MainGrid">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color= "MintCream" Offset="0.2"/>
+                    <GradientStop Color="#8a7af0" Offset="0.7"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="3" Grid.Column="2" Margin="5">
+                <Image Source="{StaticResource Logo}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
