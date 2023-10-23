@@ -6,6 +6,30 @@
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+    <Window.Resources>
+        <Style x:Key="Buttons" TargetType="Button">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Margin" Value="0 8"/>
+            <Setter Property="Foreground" Value="MintCream"/>
+            <Setter Property="Background" Value="#a295f3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="6" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="white" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3d3477"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -37,6 +61,11 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <TextBox x:Name="Username" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" Text="Username" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center"/>
+            <TextBox Name="txtRequestedPassword" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center" Text="Password"/>
+            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Content="Country:" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center"/>
+            <Button Name="BtnSignUpReady" Grid.Column="4" Grid.Row="4" Style="{StaticResource Buttons}" Grid.ColumnSpan="2" Content="Sign up now!" Click="BtnSignUpReady_Click"/>
+            <ComboBox Name="ComboBoxCountry"  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="150" Margin="10" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
     </Border>
 </Window>

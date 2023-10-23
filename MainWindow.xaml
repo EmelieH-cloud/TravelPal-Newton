@@ -65,7 +65,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="T R A V E L P A L" FontFamily="Arial" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
-            <TextBox Name="txtUsername" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Height="35" Width="240" Text="Username" FontSize="20" FontStyle="Italic" Foreground="#FF323030" VerticalContentAlignment="Center"/>
+            <TextBox Name="txtUsername" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Height="35" Width="240" Text="Username" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center"/>
             <PasswordBox Name="txtPassword" Grid.Column="1"  VerticalContentAlignment="Center" Grid.Row="4" FontSize="20" Grid.ColumnSpan="3" Height="35" Width="240" />
             <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="3" Grid.Column="2" Margin="5">
                 <Image Source="{StaticResource Logo}"/>
