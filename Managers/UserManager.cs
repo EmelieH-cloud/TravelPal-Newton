@@ -16,7 +16,6 @@ namespace TravelPal_Newton.Managers
         public static IUser? signedInUser { get; set; }
 
 
-
         //RemoveUser()
         // Använder SignInUser() för att kontrollera att användaren finns. Om den finns, tas användaren bort.
         public static void RemoveUser(IUser user)

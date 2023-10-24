@@ -18,14 +18,14 @@ namespace TravelPal_Newton.Models
         public List<PackingListItem>? packingList { get; set; }
 
         // packingList ingår ej i konstruktor (är inte nödvändigt för att kunna skapa en instans av Travel-klassen) 
-        public Travel(string destination, int travellers, DateTime startdate, DateTime enddate, Country theCountry, int traveldays)
+        public Travel(string destination, int travellers, DateTime startdate, DateTime enddate, Country theCountry)
         {
             Destination = destination;
             Travellers = travellers;
             StartDate = startdate;
             EndDate = enddate;
             TheCountry = theCountry;
-            TravelDays = traveldays; // kommer beräknas automatiskt 
+            TravelDays = CalculateTravelDays();
 
         }
 
