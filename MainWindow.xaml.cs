@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using TravelPal_Newton.Managers;
+using TravelPal_Newton.Models;
 using TravelPal_Newton.Windows;
 using Validation = TravelPal_Newton.Validator.Validation;
 
@@ -15,6 +17,15 @@ namespace TravelPal_Newton
         public MainWindow()
         {
             InitializeComponent();
+            //-----------------------------------------------------------
+            // En demo-user ska tilldelas ett par resor när appen startar
+            User user = (User)UserManager.users[0];
+            Travel travel = (Travel)TravelManager.travels[1];
+            List<Travel> userTravels = new();
+            userTravels.Add(travel);
+            user.travels = userTravels;
+            // ----------------------------------------------------------
+
         }
 
         private void BtnSignIn_Click(object sender, RoutedEventArgs e)
