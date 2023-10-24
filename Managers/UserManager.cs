@@ -16,18 +16,6 @@ namespace TravelPal_Newton.Managers
 
 
 
-        // AddUser()
-        // Tar emot en string och kontrollerar att användarnamnet inte redan finns i listan. Om det är ledigt, registreras en ny användare.
-        public static void AddUser(string username, string password, Country location)
-        {
-            if (ValidateUsername(username))
-            {
-                User user = new(username, password, location);
-                users.Add(user);
-            }
-        }
-
-
         //RemoveUser()
         // Använder SignInUser() för att kontrollera att användaren finns. Om den finns, tas användaren bort.
         public static void RemoveUser(IUser user)
@@ -42,23 +30,23 @@ namespace TravelPal_Newton.Managers
 
         }
 
-        // ValidateUsername()
-        // Söker igenom listan med registrerade användare för att kontrollera om användarnamnet är upptaget.
-        public static bool ValidateUsername(string username)
+        // CheckAvailability()
+        // Söker igenom listan med registrerade användare för att kontrollera om användaren redan finns.
+        public static bool CheckAvailability(string username, string password)
         {
-            bool usernameIsTaken = true;
+            bool usernameAndPasswordIsTaken = false;
             foreach (IUser user in users)
             {
-                if (user.Username == username)
+                if (user.Username == username && user.Password == password)
                 {
-                    usernameIsTaken = false;
+                    usernameAndPasswordIsTaken = true;
                 }
-                else if (user.Username != username)
+                else
                 {
-                    usernameIsTaken = true;
+                    usernameAndPasswordIsTaken = false;
                 }
             }
-            return usernameIsTaken;
+            return usernameAndPasswordIsTaken;
         }
 
         // SignInUser()

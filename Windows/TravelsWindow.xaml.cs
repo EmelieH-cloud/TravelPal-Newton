@@ -17,12 +17,14 @@ namespace TravelPal_Newton.Windows
             {
                 // vanlig användare är inloggad, det är säkert att casta till en user. 
                 User userCast = (User)UserManager.signedInUser;
+                lblUsername.Content = userCast.Username;
             }
 
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
                 // vanlig användare är inloggad, det är säkert att casta till en admin.
                 Admin adminCast = (Admin)UserManager.signedInUser;
+                lblUsername.Content = adminCast.Username;
 
             }
         }

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
@@ -60,30 +61,37 @@ namespace TravelPal_Newton.Windows
 
                     else if (numbersInUsername >= 3 && numbersInPassword >= 3)
                     {
-                        lblregisterFeedback.Foreground = Brushes.Green;
-                        lblregisterFeedback.Content = "Username and password is valid! Please choose your country.";
-                        // sätt som globala variabler för tillgänglighetens skull. 
-                        chosenUsername = username;
-                        chosenPassword = password;
+                        bool isNotAvailable = UserManager.CheckAvailability(username, password);
+                        if (!isNotAvailable)
+                        {
+                            lblregisterFeedback.Foreground = Brushes.Green;
+                            lblregisterFeedback.Content = "Username and password is valid! Please choose your country.";
+                            // sätt som globala variabler för tillgänglighetens skull. 
+                            chosenUsername = username;
+                            chosenPassword = password;
 
-                        // fälten username och password ska inte gå att redigera längre. 
-                        txtRequestedPassword.Clear();
-                        txtRequestedUsername.Clear();
-                        txtRequestedPassword.IsEnabled = false;
-                        txtRequestedUsername.IsEnabled = false;
+                            // fälten username och password ska inte gå att redigera längre. 
+                            txtRequestedPassword.Clear();
+                            txtRequestedUsername.Clear();
+                            txtRequestedPassword.IsEnabled = false;
+                            txtRequestedUsername.IsEnabled = false;
 
-                        // synlighet för olika element. 
-                        ComboBoxCountry.IsEnabled = true;
-                        BtnSignUpReady.Visibility = Visibility.Hidden;
-                        ComboBoxCountry.Visibility = Visibility.Visible;
-                        lblCountry.Visibility = Visibility.Visible;
-                        BtnCountry.Visibility = Visibility.Visible;
-
+                            // synlighet för olika element. 
+                            ComboBoxCountry.IsEnabled = true;
+                            BtnSignUpReady.Visibility = Visibility.Hidden;
+                            ComboBoxCountry.Visibility = Visibility.Visible;
+                            lblCountry.Visibility = Visibility.Visible;
+                            BtnCountry.Visibility = Visibility.Visible;
+                        }
+                        else if (isNotAvailable)
+                        {
+                            lblregisterFeedback.Content = "A user with this username and password already exists.";
+                            txtRequestedPassword.Clear();
+                            txtRequestedUsername.Clear();
+                        }
                     }
                 }
             }
-
-
         }
 
         private void BtnCountry_Click(object sender, RoutedEventArgs e)
@@ -92,6 +100,7 @@ namespace TravelPal_Newton.Windows
             {
                 Country selectedCountry = (Country)ComboBoxCountry.SelectedItem;
                 User user = new User(chosenUsername, chosenPassword, selectedCountry);
+                MessageBox.Show("New user has been registered!");
             }
 
 
