@@ -34,6 +34,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="RowHeaderWidth" Value="0" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGrid}">
+                        <Border Background="white"  CornerRadius="10">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
@@ -67,10 +79,20 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Logged in: " Style="{StaticResource LabelText}" Grid.Column="2" Grid.ColumnSpan="1"/>
+            <Label Content="Username: " Style="{StaticResource LabelText}" Grid.Column="2" Grid.ColumnSpan="1"/>
             <Label Name="lblUsername" Grid.Column="3" Grid.ColumnSpan="3" Content="(username)" Style="{StaticResource LabelText}"/>
-            <Button Name="btnUserDetailsWindow" Content="User details" Style="{StaticResource Buttons}" Width="125" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnUserDetailsWindow_Click"/>
-            <Button Name="btnAddtravel" Content="Add travel" Style="{StaticResource Buttons}" Width="125" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnAddtravel_Click"/>
+            <Button Name="btnUserDetailsWindow" Content="User details" Style="{StaticResource Buttons}" Width="125" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnUserDetailsWindow_Click"/>
+            <Button Name="btnAddtravel" Content="Add travel" Style="{StaticResource Buttons}" Width="125" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnAddtravel_Click"/>
+            <Border CornerRadius="35" BorderThickness="24" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#8a7af0" Offset="0.7"/>
+                        <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <DataGrid x:Name="DataGridOverview" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5"/>
+
+            </Border>
         </Grid>
     </Border>
 </Window>
