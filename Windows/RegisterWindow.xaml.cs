@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
 using TravelPal_Newton.Managers;
-using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton.Windows
@@ -76,12 +75,10 @@ namespace TravelPal_Newton.Windows
                             txtRequestedPassword.IsEnabled = false;
                             txtRequestedUsername.IsEnabled = false;
 
-                            // synlighet för olika element. 
+
                             ComboBoxCountry.IsEnabled = true;
                             BtnSignUpReady.Visibility = Visibility.Hidden;
-                            ComboBoxCountry.Visibility = Visibility.Visible;
-                            lblCountry.Visibility = Visibility.Visible;
-                            BtnCountry.Visibility = Visibility.Visible;
+
                         }
                         else if (isNotAvailable)
                         {
@@ -94,16 +91,8 @@ namespace TravelPal_Newton.Windows
             }
         }
 
-        private void BtnCountry_Click(object sender, RoutedEventArgs e)
-        {
-            if (ComboBoxCountry.SelectedIndex > -1)
-            {
-                Country selectedCountry = (Country)ComboBoxCountry.SelectedItem;
-                User user = new User(chosenUsername, chosenPassword, selectedCountry);
-                MessageBox.Show("New user has been registered!");
-            }
-
-
-        }
     }
 }
+
+
+
