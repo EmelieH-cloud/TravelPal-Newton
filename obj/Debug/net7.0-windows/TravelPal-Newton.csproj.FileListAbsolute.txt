@@ -20,3 +20,5 @@ C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\TravelPal-N
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\ref\TravelPal-Newton.dll
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\RegisterWindow.g.cs
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\RegisterWindow.baml
+C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\TravelsWindow.g.cs
+C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\TravelsWindow.baml

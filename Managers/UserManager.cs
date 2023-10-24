@@ -8,7 +8,11 @@ namespace TravelPal_Newton.Managers
     public static class UserManager
     {
         public static List<IUser> users { get; set; } = new();
+
+
+
         public static IUser? signedInUser { get; set; }
+
 
 
         // AddUser()

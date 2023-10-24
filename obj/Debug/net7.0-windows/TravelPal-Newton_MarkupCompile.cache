@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\User\repos\Newton\TravelPal-Newton\App.xaml
-21033334015
+3284000974
 
-15332629028
+171109907035
 198-759771931
-MainWindow.xaml;Windows\RegisterWindow.xaml;
+MainWindow.xaml;Windows\RegisterWindow.xaml;Windows\TravelsWindow.xaml;
 
 False
 

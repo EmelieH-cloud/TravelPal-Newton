@@ -30,6 +30,22 @@ namespace TravelPal_Newton
                 if (userExists)
                 {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
 
                 else if (!userExists)
