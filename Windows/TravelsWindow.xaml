@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="TravelsWindow" Height="450" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
+      
         <Style x:Key="LabelText" TargetType="Label">
             <Setter Property="FontSize" Value="21"/>
             <Setter Property="FontFamily" Value="Arial"/>
@@ -33,18 +34,6 @@
                     <Setter Property="Background" Value="#3d3477"/>
                 </Trigger>
             </Style.Triggers>
-        </Style>
-        <Style TargetType="{x:Type DataGrid}">
-            <Setter Property="RowHeaderWidth" Value="0" />
-            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type DataGrid}">
-                        <Border Background="white"  CornerRadius="10">
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
         </Style>
     </Window.Resources>
 <Border CornerRadius="35" BorderThickness="24">
@@ -79,23 +68,24 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Username: " Style="{StaticResource LabelText}" Grid.Column="0" Grid.ColumnSpan="1"/>
+            <Label Content="Logged in:" Style="{StaticResource LabelText}" Grid.Column="0" Grid.ColumnSpan="1"/>
             <Label Name="lblUsername" Grid.Column="1" Grid.ColumnSpan="3" Content="(username)" Style="{StaticResource LabelText}"/>
             <Label Content="OPTIONS:" Grid.Row="3" Grid.Column="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button Name="btnRemoveTravel" Content="Remove" Style="{StaticResource Buttons}" Grid.Column="4" Grid.Row="4" Width="100"/>
             <Button Name="btnUserDetailsWindow" Content="User details" Style="{StaticResource Buttons}" Width="125" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnUserDetailsWindow_Click"/>
             <Button Name="btnAddtravel" Content="Add" Height="50" Style="{StaticResource Buttons}" Width="100" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAddtravel_Click"/>
-            <Border CornerRadius="5" BorderThickness="12" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5">
+            <Border CornerRadius="5" BorderThickness="12" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5">
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#8a7af0" Offset="0.7"/>
                         <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-                <ListView x:Name="ListViewOverview" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5">
+                <ListView x:Name="ListViewOverview" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5" >
                     <ListView.View>
                         <GridView AllowsColumnReorder="True">
-                            <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding Destination}"/>
+                            <GridViewColumn Header="Destination" Width="110" DisplayMemberBinding="{Binding Destination}"/>
+                            <GridViewColumn Header="Departure" Width="160" DisplayMemberBinding="{Binding StartDate}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
