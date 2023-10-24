@@ -18,7 +18,7 @@ namespace TravelPal_Newton
         {
             InitializeComponent();
             //-----------------------------------------------------------
-            // En demo-user ska tilldelas ett par resor när appen startar
+            // En demo-user tilldelas ett par resor när appen startar
             User user = (User)UserManager.users[0];
             Travel travel = (Travel)TravelManager.travels[1];
             List<Travel> userTravels = new();
