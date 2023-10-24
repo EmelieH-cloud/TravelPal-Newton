@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
 using TravelPal_Newton.Managers;
+using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton.Windows
@@ -69,19 +70,19 @@ namespace TravelPal_Newton.Windows
                             chosenUsername = username;
                             chosenPassword = password;
 
-                            // fälten username och password ska inte gå att redigera längre. 
+                            lblCountry.Visibility = Visibility.Visible;
                             txtRequestedPassword.Clear();
                             txtRequestedUsername.Clear();
                             txtRequestedPassword.IsEnabled = false;
                             txtRequestedUsername.IsEnabled = false;
-
-
-                            ComboBoxCountry.IsEnabled = true;
+                            ComboBoxCountry.Visibility = Visibility.Visible;
+                            btnGo.Visibility = Visibility.Visible;
                             BtnSignUpReady.Visibility = Visibility.Hidden;
 
                         }
                         else if (isNotAvailable)
                         {
+                            lblregisterFeedback.Foreground = Brushes.Red;
                             lblregisterFeedback.Content = "A user with this username and password already exists.";
                             txtRequestedPassword.Clear();
                             txtRequestedUsername.Clear();
@@ -91,6 +92,25 @@ namespace TravelPal_Newton.Windows
             }
         }
 
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            if (ComboBoxCountry.SelectedIndex > -1)
+            {
+                Country selectedCountry = (Country)ComboBoxCountry.SelectedItem;
+                User user = new(chosenUsername, chosenPassword, selectedCountry);
+                UserManager.users.Add(user);
+                MessageBox.Show("A new user was created!");
+
+                btnGo.Visibility = Visibility.Hidden;
+                BtnSignUpReady.Visibility = Visibility.Visible;
+                ComboBoxCountry.Visibility = Visibility.Hidden;
+                txtRequestedPassword.IsEnabled = true;
+                txtRequestedUsername.IsEnabled = true;
+                ComboBoxCountry.SelectedIndex = -1;
+                lblCountry.Visibility = Visibility.Hidden;
+
+            }
+        }
     }
 }
 
