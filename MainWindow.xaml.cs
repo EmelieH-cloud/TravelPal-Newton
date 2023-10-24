@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Windows;
+using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton
 {
@@ -9,6 +10,7 @@ namespace TravelPal_Newton
     /// </summary>
     public partial class MainWindow : Window
     {
+        Validation validation = new Validation();
 
         public MainWindow()
         {
@@ -20,15 +22,20 @@ namespace TravelPal_Newton
             string username = txtUsername.Text;
             string password = txtPassword.Password.ToString();
 
-            bool sucessOrFail = UserManager.SignInUser(username, password);
-            if (sucessOrFail)
+            // kontrollera att input inte är null, empty eller innehåller whitespace. 
+            if (validation.CheckEmptyNullWhiteSpace(username) && validation.CheckEmptyNullWhiteSpace(password))
             {
+                // om input är ok, gå vidare med att leta efter detta username och password i listan av registrerade users.
+                bool userExists = UserManager.SignInUser(username, password);
+                if (userExists)
+                {
 
-            }
+                }
 
-            else if (!sucessOrFail)
-            {
-                lblFeedback.Content = "Error";
+                else if (!userExists)
+                {
+                    lblFeedback.Content = "Error";
+                }
             }
         }
 

@@ -7,8 +7,8 @@ namespace TravelPal_Newton.Validator
         public Validation() { }
 
         //InputLength()
-        // Användarnamn och lösenord måste vara minst 6 symboler kort, och högst 13 symboler långt. 
-        public bool InputLength(string input)
+        // Användarnamn och lösenord måste vara minst 6 och högst 13 symboler. 
+        public bool CheckInputLength(string input)
         {
             bool lengthIsOkay = false;
 
@@ -24,6 +24,29 @@ namespace TravelPal_Newton.Validator
 
             return lengthIsOkay;
         }
+
+        //  CheckEmptyNullWhiteSpace()
+        // kollar om input är null, innehåller whitespace eller är tom. 
+        public bool CheckEmptyNullWhiteSpace(string input)
+        {
+            bool isNullOrEmpty = string.IsNullOrEmpty(input);
+            bool isNullOrWhiteSpace = string.IsNullOrEmpty(input);
+            bool inputIsValid = false;
+
+            if (isNullOrEmpty || isNullOrWhiteSpace)
+            {
+                inputIsValid = false;
+            }
+
+            else if (!isNullOrEmpty && !isNullOrWhiteSpace)
+            {
+                inputIsValid = true;
+            }
+
+            return inputIsValid;
+
+        }
+
 
         // CountNumbers()
         // Räknar hur många siffror en sträng innehåller. 
