@@ -7,7 +7,10 @@ namespace TravelPal_Newton.Managers
 {
     public static class UserManager
     {
-        public static List<IUser> users = new();
+        public static List<IUser> users = new()
+        {
+            new Admin("username", "password", Country.Sweden)
+        };
 
         public static IUser? signedInUser { get; set; }
 
@@ -38,7 +41,6 @@ namespace TravelPal_Newton.Managers
             }
 
         }
-
 
         // ValidateUsername()
         // Söker igenom listan med registrerade användare för att kontrollera om användarnamnet är upptaget.

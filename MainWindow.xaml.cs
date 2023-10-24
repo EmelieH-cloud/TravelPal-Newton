@@ -29,7 +29,7 @@ namespace TravelPal_Newton
                 bool userExists = UserManager.SignInUser(username, password);
                 if (userExists)
                 {
-                    // om användaren finns, öppna nytt fönster och skicka med username + password. 
+                    // om användaren finns, öppna nytt fönster, skicka med username + password. 
                     TravelsWindow travelswindow = new(username, password);
                     travelswindow.Show();
                     Close();
@@ -38,8 +38,16 @@ namespace TravelPal_Newton
 
                 else if (!userExists)
                 {
-                    lblFeedback.Content = "Error";
+                    lblFeedback.Content = "User not found.";
+                    ClearAllFields();
                 }
+            }
+
+            else if (!validation.CheckEmptyNullWhiteSpace(username) || !validation.CheckEmptyNullWhiteSpace(password))
+            {
+                // om input innehåller whitespace, är null eller empty...
+                lblFeedback.Content = "Please fill in all fields";
+                ClearAllFields();
             }
         }
 
@@ -48,6 +56,12 @@ namespace TravelPal_Newton
             RegisterWindow registerwindow = new RegisterWindow();
             registerwindow.Show();
             Close();
+        }
+
+        public void ClearAllFields()
+        {
+            txtPassword.Clear();
+            txtUsername.Clear();
         }
     }
 }

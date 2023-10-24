@@ -65,7 +65,7 @@
             <TextBox Name="txtRequestedPassword" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center" Text="Password"/>
             <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Content="Country:" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center"/>
             <Button Name="BtnSignUpReady" Grid.Column="4" Grid.Row="4" Style="{StaticResource Buttons}" Grid.ColumnSpan="2" Content="Sign up now!" Click="BtnSignUpReady_Click"/>
-            <ComboBox Name="ComboBoxCountry"  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="150" Margin="10" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox Name="ComboBoxCountry"  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" Margin="10" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
     </Border>
 </Window>
