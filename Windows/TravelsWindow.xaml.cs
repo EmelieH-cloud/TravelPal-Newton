@@ -28,5 +28,10 @@ namespace TravelPal_Newton.Windows
 
             }
         }
+
+        private void btnUserDetailsWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

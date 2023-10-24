@@ -65,7 +65,7 @@
             <Label Name="lblCountry" Grid.Row="3" Grid.Column="1" Visibility="Hidden" Grid.ColumnSpan="1" Content="Country:" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center"/>
             <Button Name="BtnSignUpReady" Grid.Column="4" Grid.Row="2" Style="{StaticResource Buttons}" Margin="20" Grid.ColumnSpan="2" Content="Confirm" Click="BtnSignUpReady_Click" HorizontalAlignment="Center"/>
             <ComboBox Name="ComboBoxCountry" Visibility="Hidden" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" Margin="10" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-            <Label Name="lblregisterFeedback" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="test" FontSize="15"/>
+            <Label Name="lblregisterFeedback" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" FontSize="15"/>
             <Label Content="Requirements:" Grid.Column="0" FontSize="17" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Label Content="  Username and password must contain at least 6 characters (maximum 13 characters) and at least 3 numbers." Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Grid.Row="0" />
             <Button x:Name="btnGo" Content="OK" Visibility="Hidden" Style="{StaticResource Buttons}" Margin="15" Width="50" Height="40" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnGo_Click"/>

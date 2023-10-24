@@ -70,6 +70,7 @@ namespace TravelPal_Newton.Windows
                             chosenUsername = username;
                             chosenPassword = password;
 
+                            // ändra värden på "Visibility" och "IsEnabled" 
                             lblCountry.Visibility = Visibility.Visible;
                             txtRequestedPassword.Clear();
                             txtRequestedUsername.Clear();
@@ -101,6 +102,7 @@ namespace TravelPal_Newton.Windows
                 UserManager.users.Add(user);
                 MessageBox.Show("A new user was created!");
 
+                // sätt tillbaka startvärden på "visibility" och "IsEnabled" 
                 btnGo.Visibility = Visibility.Hidden;
                 BtnSignUpReady.Visibility = Visibility.Visible;
                 ComboBoxCountry.Visibility = Visibility.Hidden;

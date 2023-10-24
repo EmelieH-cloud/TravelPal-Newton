@@ -9,7 +9,7 @@ namespace TravelPal_Newton.Managers
     {
         public static List<IUser> users = new()
         {
-            new Admin("username", "password", Country.Sweden)
+            new Admin("admin", "password", Country.Sweden)
         };
 
         public static IUser? signedInUser { get; set; }
