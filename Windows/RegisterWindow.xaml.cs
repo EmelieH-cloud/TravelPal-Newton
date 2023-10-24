@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton.Windows
@@ -12,6 +13,8 @@ namespace TravelPal_Newton.Windows
     public partial class RegisterWindow : Window
     {
         Validation validation = new Validation();
+        string chosenUsername = "";
+        string chosenPassword = "";
 
         public RegisterWindow()
         {
@@ -59,6 +62,9 @@ namespace TravelPal_Newton.Windows
                     {
                         lblregisterFeedback.Foreground = Brushes.Green;
                         lblregisterFeedback.Content = "Username and password is valid! Please choose your country.";
+                        // sätt som globala variabler för tillgänglighetens skull. 
+                        chosenUsername = username;
+                        chosenPassword = password;
 
                         // fälten username och password ska inte gå att redigera längre. 
                         txtRequestedPassword.Clear();
@@ -82,6 +88,12 @@ namespace TravelPal_Newton.Windows
 
         private void BtnCountry_Click(object sender, RoutedEventArgs e)
         {
+            if (ComboBoxCountry.SelectedIndex > -1)
+            {
+                Country selectedCountry = (Country)ComboBoxCountry.SelectedItem;
+                User user = new User(chosenUsername, chosenPassword, selectedCountry);
+            }
+
 
         }
     }
