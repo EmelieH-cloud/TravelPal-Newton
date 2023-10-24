@@ -7,9 +7,8 @@ namespace TravelPal_Newton.Validator
         public Validation() { }
 
 
-
         //InputLength()
-        // Användarnamn och lösenord måste vara minst 6 och högst 13 symboler. 
+        // Användarnamn och lösenord måste innehålla minst 6 och max 13 symboler. 
         public bool CheckInputLength(string input)
         {
             bool lengthIsOkay = false;
@@ -58,7 +57,7 @@ namespace TravelPal_Newton.Validator
             int countNumbers = 0;
             char[] inputToChar = input.ToCharArray();
 
-            for (int i = 0; i <= input.Length; i++)
+            for (int i = 0; i < input.Length; i++)
             {
                 isNumber = Char.IsDigit(inputToChar[i]);
                 if (isNumber)
