@@ -93,13 +93,11 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
                 <ListView x:Name="ListViewOverview" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="5">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <WrapPanel>
-                                <TextBlock Text="{Binding Destination}" FontWeight="Bold"/>
-                            </WrapPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                    <ListView.View>
+                        <GridView AllowsColumnReorder="True">
+                            <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding Destination}"/>
+                        </GridView>
+                    </ListView.View>
                 </ListView>
             </Border>
         </Grid>

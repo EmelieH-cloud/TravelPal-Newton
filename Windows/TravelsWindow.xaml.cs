@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows;
-using System.Windows.Data;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 
@@ -41,8 +39,6 @@ namespace TravelPal_Newton.Windows
                         observableTravels.Add(travel);
                     }
 
-                    ICollectionView updateView = CollectionViewSource.GetDefaultView(ListViewOverview.ItemsSource);
-                    updateView.Refresh();
                 }
 
             }

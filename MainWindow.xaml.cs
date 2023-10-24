@@ -18,10 +18,19 @@ namespace TravelPal_Newton
         {
             InitializeComponent();
 
+            // hämta demo-user i "databasen" 
             User user = (User)UserManager.users[0];
-            Travel travel = (Travel)TravelManager.travels[0];
+
+            // hämta demo-travels i "databasen"
+            Travel travel1 = (Travel)TravelManager.travels[0];
+            Travel travel2 = (Travel)TravelManager.travels[1];
+
+            // lägg demo-travels i en list
             List<Travel> userTravels = new();
-            userTravels.Add(travel);
+            userTravels.Add(travel1);
+            userTravels.Add(travel2);
+
+            // tilldela denna list till demo-user
             user.travels = userTravels;
 
         }
