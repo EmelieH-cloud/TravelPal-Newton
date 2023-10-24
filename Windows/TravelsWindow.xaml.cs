@@ -7,12 +7,20 @@ using TravelPal_Newton.Models;
 
 namespace TravelPal_Newton.Windows
 {
-    /// <summary>
-    /// Interaction logic for TravelsWindow.xaml
-    /// </summary>
+
     public partial class TravelsWindow : Window
     {
+
+
         readonly ObservableCollection<Travel> observableTravels = new();
+
+        /*
+         ObservableCollection----------------------------------------------------------------
+         Om en listview kopplas direkt till en vanlig array (dvs Listview.ItemsSource = array)
+         så kommer innehållet i listview inte updateras när element i denna array uppdateras. 
+         Eftersom jag vill att listview ska kunna uppdateras EFTER att ItemsSource är satt,
+         så använder jag ObservableCollection. 
+         -----------------------------------------------------------------------------------*/
 
         public TravelsWindow(string username, string password)
         {
