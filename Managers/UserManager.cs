@@ -7,9 +7,7 @@ namespace TravelPal_Newton.Managers
 {
     public static class UserManager
     {
-        public static List<IUser> users { get; set; } = new();
-
-
+        public static List<IUser> users = new();
 
         public static IUser? signedInUser { get; set; }
 
@@ -69,7 +67,9 @@ namespace TravelPal_Newton.Managers
             {
                 if (user.Username == username && user.Password == password)
                 {
+                    signedInUser = user;
                     return true;
+
                 }
             }
             return false;

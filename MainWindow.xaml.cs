@@ -29,22 +29,10 @@ namespace TravelPal_Newton
                 bool userExists = UserManager.SignInUser(username, password);
                 if (userExists)
                 {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    // om användaren finns, öppna nytt fönster och skicka med username + password. 
+                    TravelsWindow travelswindow = new(username, password);
+                    travelswindow.Show();
+                    Close();
 
                 }
 

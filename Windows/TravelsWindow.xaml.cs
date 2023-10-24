@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using TravelPal_Newton.Managers;
+using TravelPal_Newton.Models;
 
 namespace TravelPal_Newton.Windows
 {
@@ -19,9 +9,19 @@ namespace TravelPal_Newton.Windows
     /// </summary>
     public partial class TravelsWindow : Window
     {
-        public TravelsWindow()
+        public TravelsWindow(string username, string password)
         {
             InitializeComponent();
+
+            if (UserManager.signedInUser?.GetType() == typeof(User))
+            {
+                // vanlig användare är inloggad. 
+            }
+
+            else if (UserManager.signedInUser?.GetType() == typeof(Admin))
+            {
+                // admin är inloggad. 
+            }
         }
     }
 }
