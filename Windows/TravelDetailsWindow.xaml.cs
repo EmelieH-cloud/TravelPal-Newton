@@ -113,6 +113,14 @@ namespace TravelPal_Newton.Windows
                 }
             }
 
+            if (!updateStartDate)
+            {
+                if (validation.CorrectDateFormat(newStartDate))
+                {
+                    MessageBox.Show("Thats ok");
+                }
+            }
+
 
         }
     }
