@@ -48,7 +48,7 @@ namespace TravelPal_Newton.Windows
             txtEndDate.IsEnabled = true;
             btnOK.IsEnabled = true;
 
-            // Töm nedan textboxes. 
+            // Töm textboxes. 
             txtCountry.Clear();
             txtDestination.Clear();
             txtTravelers.Clear();
@@ -97,6 +97,7 @@ namespace TravelPal_Newton.Windows
             // Uppdatera Destination--------------------------------------------------
             if (!updateDestination)
             {
+                lblTravelersFeedback.Foreground = Brushes.Green;
                 selectedTravel.Destination = newDestination;
                 lblDestinationFeedback.Content = "Destination was sucessfully updated";
             }
@@ -125,7 +126,9 @@ namespace TravelPal_Newton.Windows
                 if (validation.CorrectDateFormat(newStartDate))
                 {
                     DateTime dt = validation.CreateDateTimeObject(newStartDate);
-                    MessageBox.Show(dt.ToLongDateString());
+                    selectedTravel.StartDate = dt;
+                    lblStartDateFeedback.Foreground = Brushes.Green;
+                    lblStartDateFeedback.Content = "StartDate was sucessfully updated";
                 }
             }
 
@@ -134,8 +137,9 @@ namespace TravelPal_Newton.Windows
             {
                 if (validation.CorrectDateFormat(newEndDate))
                 {
-                    DateTime dt = Convert.ToDateTime(newEndDate);
+                    DateTime dt = validation.CreateDateTimeObject(newEndDate);
                     selectedTravel.StartDate = dt;
+                    lblTravelersFeedback.Foreground = Brushes.Green;
                     lblEndDateFeedback.Content = "EndDate was sucessfully updated";
                 }
             }

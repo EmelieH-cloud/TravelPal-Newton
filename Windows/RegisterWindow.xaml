@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+        Title="RegisterWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <Style x:Key="Buttons" TargetType="Button">
             <Setter Property="FontSize" Value="22"/>

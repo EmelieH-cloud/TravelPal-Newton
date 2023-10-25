@@ -17,7 +17,7 @@ namespace TravelPal_Newton.Windows
          ObservableCollection----------------------------------------------------------------
          Om en listview kopplas direkt till en vanlig array så kommer innehållet i listview
         inte updateras när arrayn uppdateras.  Eftersom jag vill att listview ska kunna uppdateras 
-        EFTER att ItemsSource är satt, så använder jag ObservableCollection. 
+        efter att ItemsSource är satt, så använder jag ObservableCollection. 
          -----------------------------------------------------------------------------------*/
 
         public TravelsWindow(string username, string password)

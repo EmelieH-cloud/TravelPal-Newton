@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+        Title="MainWindow" Height="550" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <BitmapImage x:Key="Logo" UriSource="C:\Users\User\repos\Newton\TravelPal-Newton\MicrosoftTeams-image.png"/>
         <Style x:Key="Buttons" TargetType="Button">
