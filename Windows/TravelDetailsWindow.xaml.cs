@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media;
 using TravelPal_Newton.Enums;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
@@ -65,7 +66,8 @@ namespace TravelPal_Newton.Windows
             bool updateStartDate = string.IsNullOrEmpty(newStartDate);
             bool updateEndDate = string.IsNullOrEmpty(newEndDate);
 
-            if (updateCountry)
+            // uppdatera Country------------------------------------------------------
+            if (!updateCountry)
             {
                 // kolla om angivet land finns i Enums.Country.
                 bool newCountryIsAvailable = validation.CountryExists(newCountry);
@@ -74,11 +76,42 @@ namespace TravelPal_Newton.Windows
                     // Gör en cast från string till enum. 
                     Country enumCast = (Country)Enum.Parse(typeof(Country), newCountry);
                     selectedTravel.TheCountry = enumCast;
+                    lblTravelersFeedback.Foreground = Brushes.Green;
+                    lblCountryFeedback.Content = "Country was successfully updated.";
+                    txtCountry.Clear();
+                }
+                else if (!newCountryIsAvailable)
+                {
+                    lblTravelersFeedback.Foreground = Brushes.Red;
+                    lblCountryFeedback.Content = "That country is unfortunately not available.";
                 }
             }
 
+            // Uppdatera Destination--------------------------------------------------
+            if (!updateDestination)
+            {
+                selectedTravel.Destination = newDestination;
+                lblDestinationFeedback.Content = "Destination was sucessfully updated";
+            }
 
-
+            // Uppdatera Travelers---------------------------------------------------
+            if (!updateTravelers)
+            {
+                bool stringToIntConversion;
+                int intResult;
+                stringToIntConversion = int.TryParse(newTravelers, out intResult);
+                if (stringToIntConversion)
+                {
+                    selectedTravel.Travellers = intResult;
+                    lblTravelersFeedback.Foreground = Brushes.Green;
+                    lblTravelersFeedback.Content = "Travelers was sucessfully updated";
+                }
+                else if (!stringToIntConversion)
+                {
+                    lblTravelersFeedback.Foreground = Brushes.Red;
+                    lblTravelersFeedback.Content = "Please provide the travelers input in number format.";
+                }
+            }
 
 
         }

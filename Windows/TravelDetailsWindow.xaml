@@ -60,6 +60,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Label Name="lblTravelersFeedback" Content="test" Grid.Row="4" Grid.Column="3" VerticalContentAlignment="Bottom"/>
+            <Label Name="lblCountryFeedback" Content="test" Grid.Row="3" Grid.Column="3" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
+            <Label Name="lblDestinationFeedback" Content="test" Grid.Row="4" Grid.Column="3" Height="30"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Name="lblFormatInstruction" Visibility="Hidden" Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Foreground="#FFE31616"/>
             <Label Content="Country:" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
@@ -73,8 +76,8 @@
             <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
             <TextBox Name="txtStartDate" Grid.Row="1" Grid.Column="3"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
             <TextBox Name="txtEndDate" Grid.Row="2" Grid.Column="3" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
-            <Button Name="btnEdit" Content="Edit" Grid.Column="3" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
-            <Button Name="btnOK" Content="OK" Visibility="Hidden" Grid.Column="4" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnOK_Click" />
+            <Button Name="btnEdit" Content="Edit" Width="70" Margin="10" Grid.Column="2" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
+            <Button Name="btnOK" Content="OK" Visibility="Hidden"  Grid.Column="2" Margin="10" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnOK_Click" />
              
         </Grid>
     </Border>
