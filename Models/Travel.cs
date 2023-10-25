@@ -36,7 +36,7 @@ namespace TravelPal_Newton.Models
 
         public int CalculateTravelDays()
         {
-            int numberOfDays = (int)(StartDate - EndDate).TotalDays;
+            int numberOfDays = (int)(EndDate - StartDate).TotalDays;
             return numberOfDays;
         }
 

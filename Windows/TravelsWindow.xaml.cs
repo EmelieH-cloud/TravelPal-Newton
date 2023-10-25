@@ -50,8 +50,6 @@ namespace TravelPal_Newton.Windows
             }
         }
 
-
-
         private void btnUserDetailsWindow_Click(object sender, RoutedEventArgs e)
         {
             UserDetailsWindow userdetailswindow = new();
@@ -70,7 +68,9 @@ namespace TravelPal_Newton.Windows
         {
 
             Travel travel = (Travel)ListViewOverview.SelectedItem;
-            MessageBox.Show(travel.Destination);
+            TravelDetailsWindow traveldetailswindow = new(travel);
+            traveldetailswindow.Show();
+            Close();
 
         }
     }

@@ -37,6 +37,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Label Content="Country:" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
+            <Label Content="Travelers:" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Content="Traveldays:" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="10" Grid.ColumnSpan="2" Width="200" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="10" Grid.ColumnSpan="2" Width="200" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="10" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="10" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
         </Grid>
     </Border>
 </Window>
