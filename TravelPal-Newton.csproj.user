@@ -13,6 +13,9 @@
     <Compile Update="Windows\RegisterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\TravelDetailsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\TravelsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\TravelDetailsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\TravelsWindow.xaml">
