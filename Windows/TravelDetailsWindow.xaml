@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="TravelDetailsWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent">
+        Title="TravelDetailsWindow" Height="650" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <Style x:Key="Buttons" TargetType="Button">
             <Setter Property="FontSize" Value="22"/>
@@ -61,29 +61,29 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Travel type: " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" />
-            <Label Name="lblTravelType" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="16"/>
-            <Label Name="lblTravelersFeedback"  FontSize="14" Content="" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
-            <Label Name="lblCountryFeedback" Content="" Grid.Row="4" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
-            <Label Name="lblEndDateFeedback" Content="" Grid.Row="5" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="14"/>
-            <Label Name="lblDestinationFeedback" Content="" Grid.Row="4" Grid.Column="2"  Height="30"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
-            <Label Name="lblStartDateFeedback" Content="" Grid.Row="5" Grid.Column="2" Height="30"  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Name="lblTravelType" Grid.Column="1" Grid.ColumnSpan="5" VerticalContentAlignment="Center" FontSize="16"/>
+            <Label Name="lblTravelersFeedback"  FontSize="14" Content="" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom" VerticalAlignment="Top"/>
+            <Label Name="lblCountryFeedback" Content="" Grid.Row="1" Grid.Column="0" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
+            <Label Name="lblEndDateFeedback" Content="" Grid.Row="2" Grid.Column="3" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
+            <Label Name="lblDestinationFeedback" Content="" Grid.Row="2" Grid.Column="0"  Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <Label Name="lblStartDateFeedback" Content="" Grid.Row="1" Grid.Column="3" Height="30"  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Name="lblFormatInstruction" Visibility="Hidden" Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" />
             <Label Content="Country:" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
             <Label Content="Travelers:" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Traveldays:" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-            <Label Content="Enddate:" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
-            <Label Content="Startdate:" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
-            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox Name="txtStartDate" Grid.Row="1" Grid.Column="3"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-            <TextBox Name="txtEndDate" Grid.Row="2" Grid.Column="3" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
-            <Button Name="btnEdit" Content="Edit" Width="70" Margin="10" Grid.Column="4" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
-            <Button Name="btnOK" Content="OK"  Grid.Column="4" Visibility="Hidden"   Width="70" Margin="10" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnOK_Click" />
-            <Button Name="btnReturn" Content="Return" Style="{StaticResource Buttons}" Grid.Row="5" Margin="10" Width="90" Click="btnReturn_Click"/>
-            <CheckBox Name="checkAllinclusive" Visibility="Hidden"  IsChecked="{Binding Path=AllInclusive}" Content="All inclusive" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right"/>
+            <Label Content="Enddate:" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Content="Startdate:" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
+            <TextBox x:Name="txtCountry" Height="40" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtDestination" Height="40" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelers" Height="40" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelDays" Height="40" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox Name="txtStartDate" Height="40" Grid.Row="1" Grid.Column="4"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+            <TextBox Name="txtEndDate" Height="40" Grid.Row="2" Grid.Column="4" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
+            <Button Name="btnEdit" Content="Edit" Height="40" Width="70" Margin="10" Grid.Column="4" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
+            <Button Name="btnOK" Content="OK"  Grid.Column="4" Visibility="Hidden" Height="40"   Width="70" Margin="10" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnOK_Click" />
+            <Button Name="btnReturn" Height="40" Content="Return" Style="{StaticResource Buttons}" Grid.Row="5" Margin="10" Width="90" Click="btnReturn_Click"/>
+            <CheckBox Name="checkAllinclusive" Visibility="Hidden"  IsChecked="{Binding Path=AllInclusive}" Content="All inclusive" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Right" FontSize="18"/>
         </Grid>
     </Border>
 </Window>

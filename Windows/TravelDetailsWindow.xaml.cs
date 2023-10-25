@@ -34,7 +34,14 @@ namespace TravelPal_Newton.Windows
             {
                 // visa checkbox för "all inclusive" om traveltypen är Vacation. 
                 checkAllinclusive.Visibility = Visibility.Visible;
+                checkAllinclusive.IsEnabled = false;
                 checkAllinclusive.DataContext = travel;
+            }
+
+            if (travel.GetType().Name.Equals("Worktrip"))
+            {
+                Worktrip work = (Worktrip)travel;
+                lblTravelType.Content += " (Description: " + work.MeetingDetails + ")";
             }
 
         }
@@ -55,6 +62,7 @@ namespace TravelPal_Newton.Windows
             txtStartDate.IsEnabled = true;
             txtEndDate.IsEnabled = true;
             btnOK.IsEnabled = true;
+            checkAllinclusive.IsEnabled = true;
 
             // Töm textboxes. 
             txtCountry.Clear();
@@ -74,12 +82,14 @@ namespace TravelPal_Newton.Windows
             string newStartDate = txtStartDate.Text;
             string newEndDate = txtEndDate.Text;
 
+
             // kolla vilka properties som ska uppdateras.
             bool updateCountry = string.IsNullOrEmpty(newCountry);
             bool updateDestination = string.IsNullOrEmpty(newDestination);
             bool updateTravelers = string.IsNullOrEmpty(newTravelers);
             bool updateStartDate = string.IsNullOrEmpty(newStartDate);
             bool updateEndDate = string.IsNullOrEmpty(newEndDate);
+
 
             // uppdatera Country------------------------------------------------------
             if (!updateCountry)
