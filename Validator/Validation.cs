@@ -8,6 +8,8 @@ namespace TravelPal_Newton.Validator
         public Validation() { }
 
 
+        // ChosenDateIsValid()
+        // jämför två datum och returnerar true om det förstvalda är tidigare än det sistvalda. 
         public bool ChosenDateIsValid(DateTime startDate, DateTime endDate)
         {
             // blir <0 om startDate är tidigare än endDate 
@@ -25,6 +27,7 @@ namespace TravelPal_Newton.Validator
 
 
         // CreateDateTimeObject() 
+        // Skapar ett DateTime objekt. 
         // Används i kombination med CorrectDateFormat som kontrollerar formatet på input. 
         public DateTime CreateDateTimeObject(string datestring)
         {

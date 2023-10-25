@@ -60,12 +60,14 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Label Content="Travel type: " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" />
+            <Label Name="lblTravelType" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="16"/>
             <Label Name="lblTravelersFeedback"  FontSize="14" Content="" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
             <Label Name="lblCountryFeedback" Content="" Grid.Row="4" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
             <Label Name="lblEndDateFeedback" Content="" Grid.Row="5" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="14"/>
             <Label Name="lblDestinationFeedback" Content="" Grid.Row="4" Grid.Column="2"  Height="30"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
             <Label Name="lblStartDateFeedback" Content="" Grid.Row="5" Grid.Column="2" Height="30"  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Name="lblFormatInstruction" Visibility="Hidden" Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" Foreground="#FFE31616"/>
+            <Label Name="lblFormatInstruction" Visibility="Hidden" Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" />
             <Label Content="Country:" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
             <Label Content="Travelers:" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>

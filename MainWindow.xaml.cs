@@ -24,14 +24,17 @@ namespace TravelPal_Newton
             // hämta demo-travels i "databasen"
             Travel travel1 = (Travel)TravelManager.travels[0];
             Travel travel2 = (Travel)TravelManager.travels[1];
+            Travel travel3 = (Travel)TravelManager.travels[2];
 
             // lägg demo-travels i en list
             List<Travel> userTravels = new();
             userTravels.Add(travel1);
             userTravels.Add(travel2);
+            userTravels.Add(travel3);
 
             // tilldela denna list till demo-user
             user.travels = userTravels;
+
 
         }
 

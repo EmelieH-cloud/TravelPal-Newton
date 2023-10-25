@@ -28,6 +28,8 @@ namespace TravelPal_Newton.Windows
             txtTravelDays.Text = travel.TravelDays.ToString();
             txtStartDate.Text = travel.StartDate.ToShortDateString();
             txtEndDate.Text = travel.EndDate.ToShortDateString();
+            lblTravelType.Content = travel.GetType().Name;
+
 
         }
 
