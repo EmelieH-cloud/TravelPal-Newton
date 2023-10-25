@@ -91,6 +91,7 @@ namespace TravelPal_Newton.Windows
                 {
                     lblTravelersFeedback.Foreground = Brushes.Red;
                     lblCountryFeedback.Content = "That country is unfortunately not available.";
+                    txtCountry.Clear();
                 }
             }
 
@@ -100,6 +101,7 @@ namespace TravelPal_Newton.Windows
                 lblTravelersFeedback.Foreground = Brushes.Green;
                 selectedTravel.Destination = newDestination;
                 lblDestinationFeedback.Content = "Destination was sucessfully updated";
+                txtDestination.Clear();
             }
 
             // Uppdatera Travelers---------------------------------------------------
@@ -113,11 +115,13 @@ namespace TravelPal_Newton.Windows
                     selectedTravel.Travellers = intResult;
                     lblTravelersFeedback.Foreground = Brushes.Green;
                     lblTravelersFeedback.Content = "Travelers was sucessfully updated";
+                    txtTravelers.Clear();
                 }
                 else if (!stringToIntConversion)
                 {
                     lblTravelersFeedback.Foreground = Brushes.Red;
                     lblTravelersFeedback.Content = "Please input the number of travelers as a digit";
+                    txtTravelers.Clear();
                 }
             }
             //Uppdatera Startdate----------------------------------------------
@@ -125,10 +129,24 @@ namespace TravelPal_Newton.Windows
             {
                 if (validation.CorrectDateFormat(newStartDate))
                 {
-                    DateTime dt = validation.CreateDateTimeObject(newStartDate);
-                    selectedTravel.StartDate = dt;
-                    lblStartDateFeedback.Foreground = Brushes.Green;
-                    lblStartDateFeedback.Content = "StartDate was sucessfully updated";
+                    DateTime startdate = validation.CreateDateTimeObject(newStartDate);
+                    bool dateIsValid = validation.ChosenDateIsValid(startdate, selectedTravel.EndDate);
+
+                    if (dateIsValid)
+                    {
+                        selectedTravel.StartDate = startdate;
+                        lblStartDateFeedback.Foreground = Brushes.Green;
+                        lblStartDateFeedback.Content = "StartDate was sucessfully updated";
+                        txtStartDate.Clear();
+                    }
+
+                    else if (!dateIsValid)
+                    {
+                        lblStartDateFeedback.Foreground = Brushes.Red;
+                        lblStartDateFeedback.Content = "StartDate must be sooner than EndDate";
+                        txtStartDate.Clear();
+                    }
+
                 }
             }
 
@@ -137,10 +155,24 @@ namespace TravelPal_Newton.Windows
             {
                 if (validation.CorrectDateFormat(newEndDate))
                 {
-                    DateTime dt = validation.CreateDateTimeObject(newEndDate);
-                    selectedTravel.StartDate = dt;
-                    lblTravelersFeedback.Foreground = Brushes.Green;
-                    lblEndDateFeedback.Content = "EndDate was sucessfully updated";
+                    DateTime endDate = validation.CreateDateTimeObject(newEndDate);
+                    bool dateIsValid = validation.ChosenDateIsValid(selectedTravel.StartDate, endDate);
+
+                    if (dateIsValid)
+                    {
+                        selectedTravel.EndDate = endDate;
+                        lblTravelersFeedback.Foreground = Brushes.Green;
+                        lblEndDateFeedback.Content = "EndDate was sucessfully updated";
+                        txtEndDate.Clear();
+                    }
+
+                    else if (!dateIsValid)
+                    {
+                        lblEndDateFeedback.Foreground = Brushes.Red;
+                        lblEndDateFeedback.Content = "StartDate must be sooner than EndDate";
+                        txtEndDate.Clear();
+                    }
+
                 }
             }
         }
