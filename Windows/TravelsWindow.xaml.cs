@@ -14,10 +14,9 @@ namespace TravelPal_Newton.Windows
 
         /*
          ObservableCollection----------------------------------------------------------------
-         Om en listview kopplas direkt till en vanlig array (dvs Listview.ItemsSource = array)
-         så kommer innehållet i listview inte updateras när element i denna array uppdateras. 
-         Eftersom jag vill att listview ska kunna uppdateras EFTER att ItemsSource är satt,
-         så använder jag ObservableCollection. 
+         Om en listview kopplas direkt till en vanlig array så kommer innehållet i listview
+        inte updateras när arrayn uppdateras.  Eftersom jag vill att listview ska kunna uppdateras 
+        EFTER att ItemsSource är satt, så använder jag ObservableCollection. 
          -----------------------------------------------------------------------------------*/
 
         public TravelsWindow(string username, string password)
@@ -27,7 +26,7 @@ namespace TravelPal_Newton.Windows
 
             if (UserManager.signedInUser?.GetType() == typeof(User))
             {
-                // vanlig användare är inloggad --> det går bra att casta till en user. 
+                // vanlig användare är inloggad, det går bra att casta till en user. 
                 User userCast = (User)UserManager.signedInUser;
                 lblUsername.Content = userCast.Username;
 
@@ -36,16 +35,16 @@ namespace TravelPal_Newton.Windows
                 {
                     foreach (var travel in userCast.travels)
                     {
+                        // om resor är tillagda, lägg till dessa i vår observablecollection. 
                         observableTravels.Add(travel);
                     }
-
                 }
 
             }
 
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
-                // en admin är inloggad --> det går bra att casta till en admin.
+                // en admin är inloggad, det går bra att casta till en admin.
                 Admin adminCast = (Admin)UserManager.signedInUser;
                 lblUsername.Content = adminCast.Username;
             }
@@ -65,6 +64,14 @@ namespace TravelPal_Newton.Windows
             AddTravelWindow addtravelwindow = new AddTravelWindow();
             addtravelwindow.Show();
             Close();
+        }
+
+        private void btnTravelDetails_Click(object sender, RoutedEventArgs e)
+        {
+
+            Travel travel = (Travel)ListViewOverview.SelectedItem;
+            MessageBox.Show(travel.Destination);
+
         }
     }
 }

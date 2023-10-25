@@ -70,10 +70,10 @@
             </Grid.RowDefinitions>
             <Label Content="Logged in:" Style="{StaticResource LabelText}" Grid.Column="0" Grid.ColumnSpan="1"/>
             <Label Name="lblUsername" Grid.Column="1" Grid.ColumnSpan="3" Content="(username)" Style="{StaticResource LabelText}"/>
-            <Label Content="OPTIONS:" Grid.Row="3" Grid.Column="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Name="btnRemoveTravel" Content="Remove" Style="{StaticResource Buttons}" Grid.Column="4" Grid.Row="4" Width="100"/>
+            <Button Name="btnRemoveTravel" Content="Remove travel" Style="{StaticResource Buttons}" Grid.Column="3" Grid.Row="4" Width="200" Grid.ColumnSpan="2" />
             <Button Name="btnUserDetailsWindow" Content="User details" Style="{StaticResource Buttons}" Width="125" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnUserDetailsWindow_Click"/>
-            <Button Name="btnAddtravel" Content="Add" Height="50" Style="{StaticResource Buttons}" Width="100" Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAddtravel_Click"/>
+            <Button Name="btnAddtravel" Content="Add travel" Height="50" Style="{StaticResource Buttons}" Width="200" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAddtravel_Click"/>
+            <Button Name="btnTravelDetails" Width="200" Style="{StaticResource Buttons}" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Content="Travel details" Click="btnTravelDetails_Click"/>
             <Border CornerRadius="5" BorderThickness="12" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5">
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
