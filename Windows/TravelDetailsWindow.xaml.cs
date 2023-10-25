@@ -14,7 +14,11 @@ namespace TravelPal_Newton.Windows
     {
         Validation validation = new Validation();
         Travel selectedTravel;
-        public TravelDetailsWindow(Travel travel)
+        string uname = "";
+        string pword = "";
+
+
+        public TravelDetailsWindow(Travel travel, string username, string password)
         {
             InitializeComponent();
             selectedTravel = travel;
@@ -115,19 +119,33 @@ namespace TravelPal_Newton.Windows
                     lblTravelersFeedback.Content = "Please input the number of travelers as a digit";
                 }
             }
-            //Uppdatera startdate----------------------------------------------
+            //Uppdatera Startdate----------------------------------------------
             if (!updateStartDate)
             {
                 if (validation.CorrectDateFormat(newStartDate))
                 {
-                    DateTime dt = Convert.ToDateTime(newStartDate);
-                    selectedTravel.StartDate = dt;
-                    lblStartDateFeedback.Content = "StartDate was sucessfully updated";
+                    DateTime dt = validation.CreateDateTimeObject(newStartDate);
+                    MessageBox.Show(dt.ToLongDateString());
                 }
             }
 
+            //Uppdatera Enddate----------------------------------------------
+            if (!updateEndDate)
+            {
+                if (validation.CorrectDateFormat(newEndDate))
+                {
+                    DateTime dt = Convert.ToDateTime(newEndDate);
+                    selectedTravel.StartDate = dt;
+                    lblEndDateFeedback.Content = "EndDate was sucessfully updated";
+                }
+            }
+        }
 
-
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelswindow = new(uname, pword);
+            travelswindow.Show();
+            Close();
         }
     }
 }

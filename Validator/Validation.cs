@@ -7,6 +7,37 @@ namespace TravelPal_Newton.Validator
     {
         public Validation() { }
 
+
+
+
+        // CreateDateTimeObject()
+        // Metoden används i kombination med CorrectDateFormat 
+        public DateTime CreateDateTimeObject(string datestring)
+        {
+
+            char[] inputToChar = datestring.ToCharArray();
+            char first = inputToChar[0];
+            char second = inputToChar[1];
+            string day = first.ToString() + second.ToString();
+            int dayAsInt = Convert.ToInt32(day);
+
+            char third = inputToChar[3];
+            char fourth = inputToChar[4];
+            string month = third.ToString() + fourth.ToString();
+            int monthAsInt = Convert.ToInt32(month);
+
+            char fifth = inputToChar[6];
+            char sixth = inputToChar[7];
+            char seventh = inputToChar[8];
+            char eight = inputToChar[9];
+            string year = fifth.ToString() + sixth.ToString() + seventh.ToString() + eight.ToString();
+            int yearAsInt = Convert.ToInt32(year);
+
+            DateTime newDateTime = new DateTime(yearAsInt, monthAsInt, dayAsInt);
+            return newDateTime;
+        }
+
+
         // CorrectDateFormat()
         // Tar in en sträng och kontrollerar att den följer formateringen DD/MM/YYYY
         public bool CorrectDateFormat(string datestring)

@@ -62,6 +62,7 @@
             </Grid.RowDefinitions>
             <Label Name="lblTravelersFeedback" Content="test" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom"/>
             <Label Name="lblCountryFeedback" Content="test" Grid.Row="3" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
+            <Label Name="lblEndDateFeedback" Content="test" Grid.Row="5" Grid.Column="2" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
             <Label Name="lblDestinationFeedback" Content="test" Grid.Row="4" Grid.Column="2"  Height="30"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Name="lblStartDateFeedback" Content="test" Grid.Row="5" Grid.Column="2" Height="30"  VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Label Name="lblFormatInstruction" Visibility="Hidden" Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" FontWeight="Bold" Foreground="#FFE31616"/>
@@ -79,7 +80,7 @@
             <TextBox Name="txtEndDate" Grid.Row="2" Grid.Column="3" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
             <Button Name="btnEdit" Content="Edit" Width="70" Margin="10" Grid.Column="3" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
             <Button Name="btnOK" Content="OK"  Grid.Column="4" Visibility="Hidden"  Width="70" Margin="10" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnOK_Click" />
-             
+            <Button Name="btnReturn" Content="Return" Style="{StaticResource Buttons}" Grid.Row="5" Margin="10" Click="btnReturn_Click"/>
         </Grid>
     </Border>
 </Window>

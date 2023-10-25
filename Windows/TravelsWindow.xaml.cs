@@ -9,7 +9,8 @@ namespace TravelPal_Newton.Windows
     public partial class TravelsWindow : Window
     {
 
-
+        string uname;
+        string pword;
         readonly ObservableCollection<Travel> observableTravels = new();
 
         /*
@@ -23,6 +24,8 @@ namespace TravelPal_Newton.Windows
         {
             InitializeComponent();
             ListViewOverview.ItemsSource = observableTravels;
+            uname = username;
+            pword = password;
 
             if (UserManager.signedInUser?.GetType() == typeof(User))
             {
@@ -68,9 +71,19 @@ namespace TravelPal_Newton.Windows
         {
 
             Travel travel = (Travel)ListViewOverview.SelectedItem;
-            TravelDetailsWindow traveldetailswindow = new(travel);
-            traveldetailswindow.Show();
-            Close();
+
+            if (travel != null)
+            {
+                TravelDetailsWindow traveldetailswindow = new(travel, uname, pword);
+                traveldetailswindow.Show();
+                Close();
+            }
+
+            else
+            {
+                MessageBox.Show("Please select a travel in the list");
+            }
+
 
         }
     }
