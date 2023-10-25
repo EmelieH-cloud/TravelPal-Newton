@@ -9,6 +9,56 @@ namespace TravelPal_Newton.Validator
 
 
 
+        // CorrectDateFormat()
+        // Tar in en sträng och kontrollerar att den följer formateringen DD/MM/YYYY
+        public bool CorrectDateFormat(string datestring)
+        {
+            bool formatIsCorrect = false;
+            char[] inputToChar = datestring.ToCharArray();
+            int countNumbers = 0;
+
+            // Gör bara följande om datestring.Length är lika med 10
+            if (datestring.Length == 10)
+            {
+                // index i inputToChar[] som ska innehålla en siffra: 0 1 3 4 6 7 8 9,
+                for (int i = 0; i < 5; i++)
+                {
+                    if (Char.IsDigit(inputToChar[i]))
+                    {
+                        countNumbers++;
+                    }
+                }
+                // slut på loop som undersöker om index 0 till 5 innehåller en siffra.
+
+                // fortsätt endast om samtliga index mellan 0 och 5 innehåller en siffra. 
+                if (countNumbers == 5)
+                {
+                    for (int i = 6; i < 10; i++)
+                    {
+                        if (Char.IsDigit(inputToChar[i]))
+                        {
+                            countNumbers++;
+                        }
+                    }
+                    // slut på loop som undersöker om index 6 till 9 innehåller en siffra.
+                    // om samtliga index hittils innehåller en siffra så är countNumbers = 9. 
+
+                    if (countNumbers == 9)
+                    {
+                        // index som ska innehålla backslash är 2 och 5
+                        if (inputToChar[2].Equals("/") && (inputToChar[5]).Equals("/"))
+                        {
+                            countNumbers++;
+                            formatIsCorrect = true;
+                        }
+
+                    }
+                }
+            }
+            return formatIsCorrect;
+        }
+
+
         // StringToDateTime()
         // Tar in en sträng och returnerar true om det går att konvertera den till ett datum. 
         public bool StringToDateTime(string datestring)

@@ -10,9 +10,11 @@ namespace TravelPal_Newton.Windows
     public partial class TravelDetailsWindow : Window
     {
         Validation validation = new Validation();
+        Travel selectedTravel;
         public TravelDetailsWindow(Travel travel)
         {
             InitializeComponent();
+            selectedTravel = travel;
             txtCountry.Text = travel.TheCountry.ToString();
             txtDestination.Text = travel.Destination.ToString();
             txtTravelers.Text = travel.Travellers.ToString();
@@ -54,7 +56,24 @@ namespace TravelPal_Newton.Windows
             string newStartDate = txtStartDate.Text;
             string newEndDate = txtEndDate.Text;
 
-            bool newCountryIsAvailable = validation.CountryExists(newCountry);
+            // kolla vilka properties som ska uppdateras
+            bool updateCountry = string.IsNullOrEmpty(newCountry);
+            bool updateDestination = string.IsNullOrEmpty(newDestination);
+            bool updateTravelers = string.IsNullOrEmpty(newTravelers);
+            bool updateStartDate = string.IsNullOrEmpty(newStartDate);
+            bool updateEndDate = string.IsNullOrEmpty(newEndDate);
+
+            if (updateCountry)
+            {
+                bool newCountryIsAvailable = validation.CountryExists(newCountry);
+                if (newCountryIsAvailable)
+                {
+
+                }
+            }
+
+
+
 
 
         }
