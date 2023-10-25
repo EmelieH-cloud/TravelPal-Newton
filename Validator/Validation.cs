@@ -7,8 +7,6 @@ namespace TravelPal_Newton.Validator
     {
         public Validation() { }
 
-
-
         // CorrectDateFormat()
         // Tar in en sträng och kontrollerar att den följer formateringen DD/MM/YYYY
         public bool CorrectDateFormat(string datestring)
@@ -29,9 +27,8 @@ namespace TravelPal_Newton.Validator
                     }
                 }
                 // slut på loop som undersöker om index 0 till 5 innehåller en siffra.
-
                 // fortsätt endast om samtliga index mellan 0 och 5 innehåller en siffra. 
-                if (countNumbers == 5)
+                if (countNumbers == 4)
                 {
                     for (int i = 6; i < 10; i++)
                     {
@@ -43,12 +40,11 @@ namespace TravelPal_Newton.Validator
                     // slut på loop som undersöker om index 6 till 9 innehåller en siffra.
                     // om samtliga index hittils innehåller en siffra så är countNumbers = 9. 
 
-                    if (countNumbers == 9)
+                    if (countNumbers == 8)
                     {
-                        // index som ska innehålla backslash är 2 och 5
-                        if (inputToChar[2].Equals("/") && (inputToChar[5]).Equals("/"))
+                        // index 2 och 5 ska innehålla backslash
+                        if (inputToChar[2].Equals('/') && (inputToChar[5]).Equals('/'))
                         {
-                            countNumbers++;
                             formatIsCorrect = true;
                         }
 
