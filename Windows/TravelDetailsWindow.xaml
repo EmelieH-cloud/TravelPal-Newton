@@ -83,6 +83,7 @@
             <Button Name="btnEdit" Content="Edit" Width="70" Margin="10" Grid.Column="4" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
             <Button Name="btnOK" Content="OK"  Grid.Column="4" Visibility="Hidden"   Width="70" Margin="10" Grid.Row="5" Style="{StaticResource Buttons}" Click="btnOK_Click" />
             <Button Name="btnReturn" Content="Return" Style="{StaticResource Buttons}" Grid.Row="5" Margin="10" Width="90" Click="btnReturn_Click"/>
+            <CheckBox Name="checkAllinclusive" Visibility="Hidden"  IsChecked="{Binding Path=AllInclusive}" Content="All inclusive" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right"/>
         </Grid>
     </Border>
 </Window>

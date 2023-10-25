@@ -30,6 +30,12 @@ namespace TravelPal_Newton.Windows
             txtEndDate.Text = travel.EndDate.ToShortDateString();
             lblTravelType.Content = travel.GetType().Name;
 
+            if (travel.GetType().Name.Equals("Vacation"))
+            {
+                // visa checkbox för "all inclusive" om traveltypen är Vacation. 
+                checkAllinclusive.Visibility = Visibility.Visible;
+                checkAllinclusive.DataContext = travel;
+            }
 
         }
 
