@@ -29,6 +29,9 @@ namespace TravelPal_Newton.Windows
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            // göm knappen
+            btnEdit.Visibility = Visibility.Hidden;
+
             // Visa nedan element i UI 
             btnOK.Visibility = Visibility.Visible;
             lblFormatInstruction.Visibility = Visibility.Visible;
@@ -109,17 +112,20 @@ namespace TravelPal_Newton.Windows
                 else if (!stringToIntConversion)
                 {
                     lblTravelersFeedback.Foreground = Brushes.Red;
-                    lblTravelersFeedback.Content = "Please provide the travelers input in number format.";
+                    lblTravelersFeedback.Content = "Please input the number of travelers as a digit";
                 }
             }
-
+            //Uppdatera startdate----------------------------------------------
             if (!updateStartDate)
             {
                 if (validation.CorrectDateFormat(newStartDate))
                 {
-                    MessageBox.Show("Thats ok");
+                    DateTime dt = Convert.ToDateTime(newStartDate);
+                    selectedTravel.StartDate = dt;
+                    lblStartDateFeedback.Content = "StartDate was sucessfully updated";
                 }
             }
+
 
 
         }

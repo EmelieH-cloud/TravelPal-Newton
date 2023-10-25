@@ -109,7 +109,7 @@ namespace TravelPal_Newton.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TravelPal-Newton;V1.0.0.0;component/windows/travelswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TravelPal-Newton;component/windows/travelswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\TravelsWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

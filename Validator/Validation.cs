@@ -15,7 +15,6 @@ namespace TravelPal_Newton.Validator
             char[] inputToChar = datestring.ToCharArray();
             int countNumbers = 0;
 
-            // Gör bara följande om datestring.Length är lika med 10
             if (datestring.Length == 10)
             {
                 // index i inputToChar[] som ska innehålla en siffra: 0 1 3 4 6 7 8 9,
@@ -38,11 +37,10 @@ namespace TravelPal_Newton.Validator
                         }
                     }
                     // slut på loop som undersöker om index 6 till 9 innehåller en siffra.
-                    // om samtliga index hittils innehåller en siffra så är countNumbers = 9. 
+                    // om samtliga index hittils innehåller en siffra så är countNumbers = 8. 
 
                     if (countNumbers == 8)
                     {
-                        // index 2 och 5 ska innehålla backslash
                         if (inputToChar[2].Equals('/') && (inputToChar[5]).Equals('/'))
                         {
                             formatIsCorrect = true;
@@ -54,21 +52,6 @@ namespace TravelPal_Newton.Validator
             return formatIsCorrect;
         }
 
-
-        // StringToDateTime()
-        // Tar in en sträng och returnerar true om det går att konvertera den till ett datum. 
-        public bool StringToDateTime(string datestring)
-        {
-            bool conversionIsSucessful = false;
-            DateTime dateConversion;
-            if (DateTime.TryParse(datestring, out dateConversion))
-            {
-                conversionIsSucessful = true;
-            }
-
-            return conversionIsSucessful;
-
-        }
 
         // CountryExists()
         // Tar in en sträng input och kontrollerar om det finns något land som matchar detta i Enum.Country
