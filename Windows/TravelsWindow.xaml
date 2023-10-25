@@ -85,7 +85,7 @@
                     <ListView.View>
                         <GridView AllowsColumnReorder="True">
                             <GridViewColumn Header="Destination" Width="110" DisplayMemberBinding="{Binding Destination}"/>
-                            <GridViewColumn Header="Departure" Width="160" DisplayMemberBinding="{Binding StartDate}"/>
+                            <GridViewColumn Header="Departure" Width="160" DisplayMemberBinding="{Binding StartDate, StringFormat=d}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

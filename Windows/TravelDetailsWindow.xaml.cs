@@ -15,6 +15,7 @@ namespace TravelPal_Newton.Windows
             txtDestination.Text = travel.Destination.ToString();
             txtTravelers.Text = travel.Travellers.ToString();
             txtTravelDays.Text = travel.TravelDays.ToString();
+            txtStartDate.Text = travel.StartDate.ToShortDateString();
 
         }
     }

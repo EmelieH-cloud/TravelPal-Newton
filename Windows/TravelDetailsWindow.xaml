@@ -41,10 +41,11 @@
             <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
             <Label Content="Travelers:" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Traveldays:" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="10" Grid.ColumnSpan="2" Width="200" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
-            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="10" Grid.ColumnSpan="2" Width="200" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
-            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="10" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
-            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="10" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="180" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
+            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="180" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
+            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
+            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
+            <TextBox Name="txtStartDate" Grid.Row="1" Grid.Column="3"/>
         </Grid>
     </Border>
 </Window>
