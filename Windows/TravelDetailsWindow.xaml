@@ -6,6 +6,29 @@
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
         Title="TravelDetailsWindow" Height="450" Width="800" WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+    <Window.Resources>
+        <Style x:Key="Buttons" TargetType="Button">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="MintCream"/>
+            <Setter Property="Background" Value="#a295f3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="6" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="white" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3d3477"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -41,11 +64,16 @@
             <Label Content="Destination:" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" />
             <Label Content="Travelers:" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <Label Content="Traveldays:" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="180" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
-            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="180" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
-            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
-            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5"/>
-            <TextBox Name="txtStartDate" Grid.Row="1" Grid.Column="3"/>
+            <Label Content="Enddate:" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Content="Startdate:" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="18"/>
+            <TextBox x:Name="txtCountry" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtDestination" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelDays" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox Name="txtStartDate" Grid.Row="1" Grid.Column="3"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+            <TextBox Name="txtEndDate" Grid.Row="2" Grid.Column="3" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
+            <Button Name="btnEdit" Content="Edit" Grid.Column="3" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnEdit_Click"/>
+            <Button Name="btnOK" Content="OK" Visibility="Hidden" Grid.Column="4" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnOK_Click" />
         </Grid>
     </Border>
 </Window>
