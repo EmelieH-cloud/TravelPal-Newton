@@ -53,7 +53,6 @@ namespace TravelPal_Newton.Windows
                 {
                     ListViewPackingList.Items.Add(item.GetInfo());
                 }
-
             }
         }
 
@@ -81,9 +80,7 @@ namespace TravelPal_Newton.Windows
             txtTravelers.Clear();
             txtStartDate.Clear();
             txtEndDate.Clear();
-
         }
-
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             // Hämta inputs.

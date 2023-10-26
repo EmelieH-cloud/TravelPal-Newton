@@ -35,10 +35,16 @@ namespace TravelPal_Newton.Windows
             // om ett index är valt...
             if (ComboTravelType.SelectedIndex > -1)
             {
-                // göm ok knappen
                 BtnOK.Visibility = Visibility.Hidden;
-                // gör finish knappen synlig
                 btnfinish.Visibility = Visibility.Visible;
+                txtDestination.Visibility = Visibility.Visible;
+                txtEndDate.Visibility = Visibility.Visible;
+                txtStartDate.Visibility = Visibility.Visible;
+                txtTravelers.Visibility = Visibility.Visible;
+                lbldest.Visibility = Visibility.Visible;
+                lblend.Visibility = Visibility.Visible;
+                lbltravelers.Visibility = Visibility.Visible;
+                lblstartd.Visibility = Visibility.Visible;
 
                 // hämta detta comboBoxItem
                 ComboBoxItem selected = (ComboBoxItem)ComboTravelType.SelectedItem;

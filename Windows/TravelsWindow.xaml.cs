@@ -43,7 +43,6 @@ namespace TravelPal_Newton.Windows
                         observableTravels.Add(travel);
                     }
                 }
-
             }
 
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
@@ -83,8 +82,6 @@ namespace TravelPal_Newton.Windows
             {
                 MessageBox.Show("Please select a travel in the list");
             }
-
-
         }
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
