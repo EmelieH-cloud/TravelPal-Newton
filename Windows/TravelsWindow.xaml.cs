@@ -50,6 +50,12 @@ namespace TravelPal_Newton.Windows
                 // en admin är inloggad, det går bra att casta till en admin.
                 Admin adminCast = (Admin)UserManager.signedInUser;
                 lblUsername.Content = adminCast.Username;
+
+                foreach (Travel travel in TravelManager.travels)
+                {
+                    observableTravels.Add(travel);
+                }
+
             }
         }
 

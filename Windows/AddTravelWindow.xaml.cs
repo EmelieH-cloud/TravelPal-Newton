@@ -179,7 +179,6 @@ namespace TravelPal_Newton.Windows
             }
             return true;
         }
-
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
             if (UserManager.signedInUser?.GetType() == typeof(User))
