@@ -47,7 +47,8 @@ namespace TravelPal_Newton.Windows
 
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
-                // en admin är inloggad, det går bra att casta till en admin.
+                // En admin kan inte lägga till resor. 
+                btnAddtravel.IsEnabled = false;
                 Admin adminCast = (Admin)UserManager.signedInUser;
                 lblUsername.Content = adminCast.Username;
 
@@ -72,7 +73,6 @@ namespace TravelPal_Newton.Windows
             addtravelwindow.Show();
             Close();
         }
-
         private void btnTravelDetails_Click(object sender, RoutedEventArgs e)
         {
 
