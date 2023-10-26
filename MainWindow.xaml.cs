@@ -27,7 +27,7 @@ namespace TravelPal_Newton
             PackingListItem item2 = PackingItemsManager.packingList_1[1];
             PackingListItem item3 = PackingItemsManager.packingList_1[2];
 
-            // Demo-packinglists
+            // Demo-packinglist
             List<PackingListItem> packinglist1 = new();
             packinglist1.Add(item1);
             packinglist1.Add(item2);

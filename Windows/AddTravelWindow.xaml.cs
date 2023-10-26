@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using TravelPal_Newton.Enums;
 
 namespace TravelPal_Newton.Windows
 {
@@ -22,6 +12,14 @@ namespace TravelPal_Newton.Windows
         public AddTravelWindow()
         {
             InitializeComponent();
+
+            // fyller comboboxen (Country)
+            foreach (Country country in Enum.GetValues(typeof(Country)))
+            {
+                ComboTravelCountry.Items.Add(country);
+            }
+
+
         }
     }
 }

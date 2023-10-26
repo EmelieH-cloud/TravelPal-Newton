@@ -28,7 +28,7 @@ namespace TravelPal_Newton.Windows
             txtTravelDays.Text = travel.TravelDays.ToString();
             txtStartDate.Text = travel.StartDate.ToShortDateString();
             txtEndDate.Text = travel.EndDate.ToShortDateString();
-            lblTravelType.Content = travel.GetType().Name;
+            txtTravelType.Text = travel.GetType().Name;
 
             if (travel.GetType().Name.Equals("Vacation"))
             {
@@ -42,7 +42,8 @@ namespace TravelPal_Newton.Windows
             if (travel.GetType().Name.Equals("Worktrip"))
             {
                 Worktrip work = (Worktrip)travel;
-                lblTravelType.Content += " (Description: " + work.MeetingDetails + ")";
+                ListViewMeetingDetails.Items.Add(work.MeetingDetails);
+
             }
 
             // om det finns en packinglist, loopa igenom listan och printa infon om varje item. 
@@ -54,6 +55,7 @@ namespace TravelPal_Newton.Windows
                 }
 
             }
+
 
         }
 

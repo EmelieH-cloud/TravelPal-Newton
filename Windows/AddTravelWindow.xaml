@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="AddTravelWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AddTravelWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
+    <Border CornerRadius="35" BorderThickness="24">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color= "MintCream" Offset="0.2"/>
+                <GradientStop Color="#8a7af0" Offset="0.7"/>
+                <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid Name="AddTravelGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color= "MintCream" Offset="0.2"/>
+                    <GradientStop Color="#8a7af0" Offset="0.7"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Content="Add travel" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Nirmala UI Semilight" FontWeight="Bold"/>
+            <Label Content="Select country:" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Select Traveltype: " Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ComboBox Name="ComboTravelCountry" Grid.Row="1" Margin="10" Grid.Column="1"/>
+            <ComboBox Name="ComboTravelType" Grid.Row="2" Margin="10" Grid.Column="1">
+                <ComboBoxItem Content="Vacation"/>
+                <ComboBoxItem Content="Worktrip"/>
+                <ComboBoxItem Content="Unspecified"/>
+            </ComboBox>
+        </Grid>
+    </Border>
 </Window>
