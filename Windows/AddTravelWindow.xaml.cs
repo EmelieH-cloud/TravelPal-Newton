@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,7 +8,6 @@ using TravelPal_Newton.Enums;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
-
 
 namespace TravelPal_Newton.Windows
 {
@@ -29,8 +29,6 @@ namespace TravelPal_Newton.Windows
             {
                 ComboTravelCountry.Items.Add(country);
             }
-
-
         }
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
@@ -90,17 +88,11 @@ namespace TravelPal_Newton.Windows
                             observeTravels.Add(withAllInclusive);
                             MessageBox.Show("Vacation created");
 
-
                             if (UserManager.signedInUser?.GetType() == typeof(User))
                             {
                                 User userCast = (User)UserManager.signedInUser;
-                                if (userCast.travels != null)
-                                {
-                                    userCast.travels.Add(withAllInclusive);
-                                }
-
+                                AddTravelToUser(withAllInclusive, userCast);
                             }
-
                         }
 
                         else if (checkInclusive.IsChecked == false)
@@ -109,6 +101,12 @@ namespace TravelPal_Newton.Windows
                             TravelManager.travels.Add(WithoutAllInclusive);
                             observeTravels.Add(WithoutAllInclusive);
                             MessageBox.Show("Vacation created");
+
+                            if (UserManager.signedInUser?.GetType() == typeof(User))
+                            {
+                                User userCast = (User)UserManager.signedInUser;
+                                AddTravelToUser(WithoutAllInclusive, userCast);
+                            }
                         }
                     }
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && txtMeetingDetails.IsVisible)
@@ -118,6 +116,12 @@ namespace TravelPal_Newton.Windows
                         TravelManager.travels.Add(worktrip);
                         observeTravels.Add(worktrip);
                         MessageBox.Show("Worktrip created");
+
+                        if (UserManager.signedInUser?.GetType() == typeof(User))
+                        {
+                            User userCast = (User)UserManager.signedInUser;
+                            AddTravelToUser(worktrip, userCast);
+                        }
                     }
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
                     {
@@ -125,6 +129,12 @@ namespace TravelPal_Newton.Windows
                         TravelManager.travels.Add(travel);
                         observeTravels.Add(travel);
                         MessageBox.Show("Travel created");
+
+                        if (UserManager.signedInUser?.GetType() == typeof(User))
+                        {
+                            User userCast = (User)UserManager.signedInUser;
+                            AddTravelToUser(travel, userCast);
+                        }
                     }
                 }
 
@@ -135,6 +145,22 @@ namespace TravelPal_Newton.Windows
                 }
             }
         }
+
+        public void AddTravelToUser(Travel travel, User user)
+        {
+            if (user.travels != null)
+            {
+                user.travels.Add(travel);
+            }
+
+            else if (user.travels == null)
+            {
+                List<Travel> travelsList = new();
+                travelsList.Add(travel);
+                user.travels = travelsList;
+            }
+        }
+
         public bool DateIsValid(string startdate, string enddate)
         {
             DateTime startDateObject = validation.CreateDateTimeObject(startdate);
