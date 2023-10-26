@@ -9,7 +9,7 @@ namespace TravelPal_Newton.Validator
 
 
         // ChosenDateIsValid()
-        // jämför två datum och returnerar true om det förstvalda är tidigare än det sistvalda. 
+        // jämför två datum och returnerar true om det första datumet är tidigare än det andra datumet.  
         public bool ChosenDateIsValid(DateTime startDate, DateTime endDate)
         {
             // blir <0 om startDate är tidigare än endDate 
@@ -102,7 +102,7 @@ namespace TravelPal_Newton.Validator
 
 
         // CountryExists()
-        // Tar in en sträng input och kontrollerar om det finns något land som matchar detta i Enum.Country
+        // Tar in en sträng input och kontrollerar om det finns något land som matchar i Enum.Country
         public bool CountryExists(string countryInput)
         {
             bool countryExists = false;

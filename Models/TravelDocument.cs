@@ -1,12 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TravelPal_Newton.Interfaces;
 
 namespace TravelPal_Newton.Models
 {
-    internal class TravelDocument
+    public class TravelDocument : PackingListItem
     {
+        public bool Required { get; set; }
+        public string Name { get; set; }
+
+        public TravelDocument(bool required, string name)
+        {
+            Required = required;
+            Name = name;
+        }
+        public string GetInfo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

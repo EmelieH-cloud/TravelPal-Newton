@@ -17,7 +17,7 @@ namespace TravelPal_Newton.Models
 
         public List<PackingListItem>? packingList { get; set; }
 
-        // packingList ingår ej i konstruktor (är inte nödvändigt för att kunna skapa en instans av Travel-klassen) 
+        // packingList ingår ej i konstruktor (dvs det är inte nödvändigt för att kunna skapa en Travel) 
         public Travel(string destination, int travellers, DateTime startdate, DateTime enddate, Country theCountry)
         {
             Destination = destination;
