@@ -24,6 +24,8 @@ namespace TravelPal_Newton.Windows
         {
             InitializeComponent();
             observeTravels = observableTravels;
+
+
             // fyller comboboxen med Enum.Country 
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
@@ -191,6 +193,7 @@ namespace TravelPal_Newton.Windows
             }
 
         }
+
     }
 }
 
