@@ -18,6 +18,8 @@ namespace TravelPal_Newton.Validator
         }
 
 
+
+
         // ChosenDateIsValid()
         // jämför två datum och returnerar true om det första datumet är tidigare än det andra datumet.  
         public bool ChosenDateIsValid(DateTime startDate, DateTime endDate)
