@@ -18,6 +18,7 @@ namespace TravelPal_Newton.Windows
     {
         Validation validation = new Validation();
         readonly ObservableCollection<Travel> observeTravels;
+
         CreateObjects create = new();
         public AddTravelWindow(ObservableCollection<Travel> observableTravels)
         {
@@ -28,6 +29,8 @@ namespace TravelPal_Newton.Windows
             {
                 ComboTravelCountry.Items.Add(country);
             }
+
+
         }
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
@@ -85,6 +88,19 @@ namespace TravelPal_Newton.Windows
                             Vacation withAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, true);
                             TravelManager.travels.Add(withAllInclusive);
                             observeTravels.Add(withAllInclusive);
+                            MessageBox.Show("Vacation created");
+
+
+                            if (UserManager.signedInUser?.GetType() == typeof(User))
+                            {
+                                User userCast = (User)UserManager.signedInUser;
+                                if (userCast.travels != null)
+                                {
+                                    userCast.travels.Add(withAllInclusive);
+                                }
+
+                            }
+
                         }
 
                         else if (checkInclusive.IsChecked == false)
@@ -92,6 +108,7 @@ namespace TravelPal_Newton.Windows
                             Vacation WithoutAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, false);
                             TravelManager.travels.Add(WithoutAllInclusive);
                             observeTravels.Add(WithoutAllInclusive);
+                            MessageBox.Show("Vacation created");
                         }
                     }
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && txtMeetingDetails.IsVisible)
@@ -100,13 +117,14 @@ namespace TravelPal_Newton.Windows
                         Worktrip worktrip = create.CreateWorktrip(startdate, enddate, destination, intTravelers, country, meetingdetails);
                         TravelManager.travels.Add(worktrip);
                         observeTravels.Add(worktrip);
+                        MessageBox.Show("Worktrip created");
                     }
-
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
                     {
                         Travel travel = create.CreateTravel(startdate, enddate, destination, intTravelers, country);
                         TravelManager.travels.Add(travel);
                         observeTravels.Add(travel);
+                        MessageBox.Show("Travel created");
                     }
                 }
 
@@ -128,6 +146,19 @@ namespace TravelPal_Newton.Windows
                 return false;
             }
             return true;
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserManager.signedInUser?.GetType() == typeof(User))
+            {
+                // vanlig användare är inloggad, dvs det går bra att casta till en user. 
+                User userCast = (User)UserManager.signedInUser;
+                TravelsWindow travelswindow = new(userCast.Username, userCast.Password);
+                travelswindow.Show();
+                Close();
+            }
+
         }
     }
 }

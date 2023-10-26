@@ -26,7 +26,6 @@ namespace TravelPal_Newton.Windows
                 ComboBoxCountry.Items.Add(item);
             }
         }
-
         private void BtnSignUpReady_Click(object sender, RoutedEventArgs e)
         {
             string username = txtRequestedUsername.Text;

@@ -85,6 +85,7 @@
             <TextBox Name="txtStartDate" Grid.Row="5" Grid.Column="1" Margin="15" />
             <TextBox Name="txtEndDate" Grid.Row="6" Grid.Column="1" Margin="15"/>
             <Button Name="btnfinish" Visibility="Hidden" Content="Finish" Grid.Column="2" Width="70" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnfinish_Click"/>
+            <Button Name="btnReturn" Margin="10" Grid.ColumnSpan="2" Content="Return" Style="{StaticResource Buttons}" Grid.Column="4" Grid.Row="4" Click="btnReturn_Click"/>
         </Grid>
     </Border>
 </Window>

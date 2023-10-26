@@ -55,8 +55,6 @@ namespace TravelPal_Newton.Windows
                 }
 
             }
-
-
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -95,14 +93,12 @@ namespace TravelPal_Newton.Windows
             string newStartDate = txtStartDate.Text;
             string newEndDate = txtEndDate.Text;
 
-
             // kolla vilka properties som ska uppdateras.
             bool updateCountry = string.IsNullOrEmpty(newCountry);
             bool updateDestination = string.IsNullOrEmpty(newDestination);
             bool updateTravelers = string.IsNullOrEmpty(newTravelers);
             bool updateStartDate = string.IsNullOrEmpty(newStartDate);
             bool updateEndDate = string.IsNullOrEmpty(newEndDate);
-
 
             // uppdatera Country------------------------------------------------------
             if (!updateCountry)

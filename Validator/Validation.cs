@@ -7,8 +7,6 @@ namespace TravelPal_Newton.Validator
     {
         public Validation() { }
 
-
-
         public bool StringToInt(string stringToInt)
         {
             bool conversionResult;
@@ -16,9 +14,6 @@ namespace TravelPal_Newton.Validator
             conversionResult = int.TryParse(stringToInt, out converted);
             return conversionResult;
         }
-
-
-
 
         // ChosenDateIsValid()
         // jämför två datum och returnerar true om det första datumet är tidigare än det andra datumet.  
@@ -36,7 +31,6 @@ namespace TravelPal_Newton.Validator
                 return false;
             }
         }
-
 
         // CreateDateTimeObject() 
         // Skapar ett DateTime objekt. 
@@ -65,7 +59,6 @@ namespace TravelPal_Newton.Validator
             DateTime newDateTime = new DateTime(yearAsInt, monthAsInt, dayAsInt);
             return newDateTime;
         }
-
 
         // CorrectDateFormat()
         // Tar in en sträng och kontrollerar att den följer formateringen DD/MM/YYYY

@@ -24,6 +24,7 @@ namespace TravelPal_Newton.Windows
         {
             InitializeComponent();
             ListViewOverview.ItemsSource = observableTravels;
+
             uname = username;
             pword = password;
 
