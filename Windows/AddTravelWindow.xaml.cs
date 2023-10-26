@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal_Newton.Create;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
@@ -15,11 +17,12 @@ namespace TravelPal_Newton.Windows
     public partial class AddTravelWindow : Window
     {
         Validation validation = new Validation();
+        readonly ObservableCollection<Travel> observeTravels;
         CreateObjects create = new();
-        public AddTravelWindow()
+        public AddTravelWindow(ObservableCollection<Travel> observableTravels)
         {
             InitializeComponent();
-
+            observeTravels = observableTravels;
             // fyller comboboxen med Enum.Country 
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
@@ -55,7 +58,6 @@ namespace TravelPal_Newton.Windows
                 }
             }
         }
-
         private void btnfinish_Click(object sender, RoutedEventArgs e)
         {
             string destination = txtDestination.Text;
@@ -81,24 +83,30 @@ namespace TravelPal_Newton.Windows
                         if (checkInclusive.IsChecked == true)
                         {
                             Vacation withAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, true);
+                            TravelManager.travels.Add(withAllInclusive);
+                            observeTravels.Add(withAllInclusive);
                         }
 
                         else if (checkInclusive.IsChecked == false)
                         {
                             Vacation WithoutAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, false);
+                            TravelManager.travels.Add(WithoutAllInclusive);
+                            observeTravels.Add(WithoutAllInclusive);
                         }
                     }
-
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && txtMeetingDetails.IsVisible)
                     {
                         string meetingdetails = txtMeetingDetails.Text;
                         Worktrip worktrip = create.CreateWorktrip(startdate, enddate, destination, intTravelers, country, meetingdetails);
-
+                        TravelManager.travels.Add(worktrip);
+                        observeTravels.Add(worktrip);
                     }
 
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
                     {
                         Travel travel = create.CreateTravel(startdate, enddate, destination, intTravelers, country);
+                        TravelManager.travels.Add(travel);
+                        observeTravels.Add(travel);
                     }
                 }
 

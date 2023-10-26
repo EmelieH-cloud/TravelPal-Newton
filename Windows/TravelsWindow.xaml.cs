@@ -15,9 +15,9 @@ namespace TravelPal_Newton.Windows
 
         /*
          ObservableCollection----------------------------------------------------------------
-         Om en listview kopplas direkt till en vanlig array så kommer innehållet i listview
-        inte updateras när arrayn uppdateras.  Eftersom jag vill att listview ska kunna uppdateras 
-        efter att ItemsSource är satt, så använder jag ObservableCollection. 
+         Om en listview kopplas direkt till en vanlig lista så kommer innehållet i listview
+        inte att updateras när listan uppdateras.  Eftersom jag vill att listview ska uppdateras 
+        "automatiskt" så använder jag ObservableCollection. 
          -----------------------------------------------------------------------------------*/
 
         public TravelsWindow(string username, string password)
@@ -29,7 +29,7 @@ namespace TravelPal_Newton.Windows
 
             if (UserManager.signedInUser?.GetType() == typeof(User))
             {
-                // vanlig användare är inloggad, det går bra att casta till en user. 
+                // vanlig användare är inloggad, dvs det går bra att casta till en user. 
                 User userCast = (User)UserManager.signedInUser;
                 lblUsername.Content = userCast.Username;
 
@@ -62,7 +62,7 @@ namespace TravelPal_Newton.Windows
 
         private void btnAddtravel_Click(object sender, RoutedEventArgs e)
         {
-            AddTravelWindow addtravelwindow = new AddTravelWindow();
+            AddTravelWindow addtravelwindow = new AddTravelWindow(observableTravels);
             addtravelwindow.Show();
             Close();
         }
@@ -71,7 +71,6 @@ namespace TravelPal_Newton.Windows
         {
 
             Travel travel = (Travel)ListViewOverview.SelectedItem;
-
             if (travel != null)
             {
                 TravelDetailsWindow traveldetailswindow = new(travel, uname, pword);
