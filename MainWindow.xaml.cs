@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using TravelPal_Newton.Interfaces;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using TravelPal_Newton.Windows;
@@ -18,23 +19,34 @@ namespace TravelPal_Newton
         {
             InitializeComponent();
 
-            // hämta demo-user i "databasen" 
+            // Demo-users
             User user = (User)UserManager.users[0];
 
-            // hämta demo-travels i "databasen"
+            // Demo-items 
+            PackingListItem item1 = PackingItemsManager.packingList_1[0];
+            PackingListItem item2 = PackingItemsManager.packingList_1[1];
+            PackingListItem item3 = PackingItemsManager.packingList_1[2];
+
+            // Demo-packinglists
+            List<PackingListItem> packinglist1 = new();
+            packinglist1.Add(item1);
+            packinglist1.Add(item2);
+            packinglist1.Add(item3);
+
+            // Demo-travels
             Travel travel1 = (Travel)TravelManager.travels[0];
             Travel travel2 = (Travel)TravelManager.travels[1];
             Travel travel3 = (Travel)TravelManager.travels[2];
-
-            // lägg demo-travels i en list
             List<Travel> userTravels = new();
             userTravels.Add(travel1);
             userTravels.Add(travel2);
             userTravels.Add(travel3);
 
-            // tilldela denna list till demo-user
+            // Tilldela travels till user
             user.travels = userTravels;
 
+            // Tilldela packinglist till user 
+            travel1.packingList = packinglist1;
 
         }
 

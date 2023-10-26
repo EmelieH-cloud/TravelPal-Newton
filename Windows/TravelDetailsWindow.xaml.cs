@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Interfaces;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
@@ -16,7 +17,6 @@ namespace TravelPal_Newton.Windows
         Travel selectedTravel;
         string uname = "";
         string pword = "";
-
 
         public TravelDetailsWindow(Travel travel, string username, string password)
         {
@@ -38,10 +38,21 @@ namespace TravelPal_Newton.Windows
                 checkAllinclusive.DataContext = travel;
             }
 
+            // om typen är en worktrip, printa meetingdetails. 
             if (travel.GetType().Name.Equals("Worktrip"))
             {
                 Worktrip work = (Worktrip)travel;
                 lblTravelType.Content += " (Description: " + work.MeetingDetails + ")";
+            }
+
+            // om det finns en packinglist, loopa igenom listan och printa infon om varje item. 
+            if (travel.packingList != null && travel.packingList.Count > 0)
+            {
+                foreach (PackingListItem item in travel.packingList)
+                {
+                    ListViewPackingList.Items.Add(item.GetInfo());
+                }
+
             }
 
         }
@@ -64,7 +75,7 @@ namespace TravelPal_Newton.Windows
             btnOK.IsEnabled = true;
             checkAllinclusive.IsEnabled = true;
 
-            // Töm textboxes. 
+            // Clear textboxes. 
             txtCountry.Clear();
             txtDestination.Clear();
             txtTravelers.Clear();

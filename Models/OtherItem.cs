@@ -16,5 +16,6 @@ namespace TravelPal_Newton.Models
         {
             return $"{Name} quantity: {Quantity}";
         }
+
     }
 }
