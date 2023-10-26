@@ -84,7 +84,7 @@
             <TextBox Name="txtDestination" Grid.Row="4" Grid.Column="1" Margin="15"/>
             <TextBox Name="txtStartDate" Grid.Row="5" Grid.Column="1" Margin="15" />
             <TextBox Name="txtEndDate" Grid.Row="6" Grid.Column="1" Margin="15"/>
-            <Button Name="btnfinish" Content="Finish" Grid.Column="2" Width="70" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnfinish_Click"/>
+            <Button Name="btnfinish" Visibility="Hidden" Content="Finish" Grid.Column="2" Width="70" Grid.Row="4" Style="{StaticResource Buttons}" Click="btnfinish_Click"/>
         </Grid>
     </Border>
 </Window>

@@ -8,6 +8,16 @@ namespace TravelPal_Newton.Validator
         public Validation() { }
 
 
+
+        public bool StringToInt(string stringToInt)
+        {
+            bool conversionResult;
+            int converted;
+            conversionResult = int.TryParse(stringToInt, out converted);
+            return conversionResult;
+        }
+
+
         // ChosenDateIsValid()
         // jämför två datum och returnerar true om det första datumet är tidigare än det andra datumet.  
         public bool ChosenDateIsValid(DateTime startDate, DateTime endDate)

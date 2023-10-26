@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Models;
+using Validation = TravelPal_Newton.Validator.Validation;
 
 namespace TravelPal_Newton.Windows
 {
@@ -11,7 +12,7 @@ namespace TravelPal_Newton.Windows
     /// </summary>
     public partial class AddTravelWindow : Window
     {
-        bool allFieldsAreFilledin = false;
+        Validation validation = new Validation();
         public AddTravelWindow()
         {
             InitializeComponent();
@@ -30,6 +31,11 @@ namespace TravelPal_Newton.Windows
             // om ett index är valt...
             if (ComboTravelType.SelectedIndex > -1)
             {
+                // göm ok knappen
+                BtnOK.Visibility = Visibility.Hidden;
+                // gör finish knappen synlig
+                btnfinish.Visibility = Visibility.Visible;
+
                 // hämta detta comboBoxItem
                 ComboBoxItem selected = (ComboBoxItem)ComboTravelType.SelectedItem;
                 //.. och hämta sedan dess content som en string. 
@@ -52,53 +58,71 @@ namespace TravelPal_Newton.Windows
 
         }
 
-        // knappen kommer bara vara synbar efter att användaren valt traveltype. 
         private void btnfinish_Click(object sender, RoutedEventArgs e)
         {
-
             string destination = txtDestination.Text;
             string startdate = txtStartDate.Text;
             string enddate = txtEndDate.Text;
             string travelers = txtTravelers.Text;
 
-            List<String> input = new();
-            input.Add(destination);
-            input.Add(startdate);
-            input.Add(enddate);
-            input.Add(travelers);
-            int counter = 0;
-
-            for (int i = 0; i < input.Count; i++)
+            // fortsätt endast om samtliga fält är ifyllda...
+            if (!string.IsNullOrEmpty(destination)
+                && !string.IsNullOrEmpty(startdate)
+                && !string.IsNullOrEmpty(enddate)
+                && !string.IsNullOrEmpty(travelers)
+                && ComboTravelCountry.SelectedIndex > -1)
             {
-                bool isNullorEmpty = string.IsNullOrEmpty(input[i]);
-                if (!isNullorEmpty)
-                {
-                    counter++;
-                }
-            }
-
-            if (counter == 3) // kommer vara 3 om ingen av dessa strings är null/empty. 
-                allFieldsAreFilledin = true;
-
-            // gå ej vidare om alla fält inte är ifyllda. 
-            if (!allFieldsAreFilledin) { MessageBox.Show("Please fill in all fields"); }
-
-            // Alla fält är ifyllda, och travel är en vacation 
-            else if (allFieldsAreFilledin && checkInclusive.Visibility == Visibility.Visible)
-            {
+                // casta till en Enum.Country 
                 Country country = (Country)ComboTravelCountry.SelectedItem;
 
-                // checkboxen är ifylld. 
-                if (checkInclusive.IsChecked != null)
+                // ...undersök om travelers går att omvandla till int. 
+                if (validation.StringToInt(travelers))
                 {
+                    //omvandla isåfall till int. 
+                    int intTravelers = Convert.ToInt32(travelers);
 
+                    // Alla fält är ifyllda, datum är korrekt ifyllt, traveltype är vacation 
+                    if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && checkInclusive.IsVisible)
+                    {
+                        // skapa en Vacation. 
+                        CreateVacation(startdate, enddate, destination, intTravelers, country);
+                    }
                 }
             }
-
         }
-        //-----------------------------------------------------------------------------
+
+        public void CreateVacation(string startdate, string enddate, string destination, int travelers, Country country)
+        {
+            DateTime startDateObject = validation.CreateDateTimeObject(startdate);
+            DateTime endDateObject = validation.CreateDateTimeObject(enddate);
+            bool dateIsValid = validation.ChosenDateIsValid(startDateObject, endDateObject);
+
+            if (!dateIsValid)
+            {
+                MessageBox.Show("The start date must be sooner than the end date.");
+                txtStartDate.Clear();
+                txtEndDate.Clear();
+            }
+
+            else if (dateIsValid)
+            {
+                if (checkInclusive.IsChecked == true)
+                {
+                    Vacation vacation = new(destination, travelers, startDateObject, endDateObject, country, true);
+                    MessageBox.Show("travel created");
+                }
+            }
+        }
+
 
 
     }
-
 }
+
+
+
+//-----------------------------------------------------------------------------
+
+
+
+
