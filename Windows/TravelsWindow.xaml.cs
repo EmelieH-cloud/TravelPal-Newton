@@ -48,6 +48,7 @@ namespace TravelPal_Newton.Windows
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
                 // En admin kan inte lägga till resor. 
+                btnAddtravel.Visibility = Visibility.Hidden;
                 btnAddtravel.IsEnabled = false;
                 Admin adminCast = (Admin)UserManager.signedInUser;
                 lblUsername.Content = adminCast.Username;
@@ -56,7 +57,6 @@ namespace TravelPal_Newton.Windows
                 {
                     observableTravels.Add(travel);
                 }
-
             }
         }
 

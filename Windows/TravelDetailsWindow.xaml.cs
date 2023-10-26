@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using TravelPal_Newton.Enums;
 using TravelPal_Newton.Interfaces;
+using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
 
@@ -43,7 +44,12 @@ namespace TravelPal_Newton.Windows
             {
                 Worktrip work = (Worktrip)travel;
                 ListViewMeetingDetails.Items.Add(work.MeetingDetails);
+            }
 
+            if (UserManager.signedInUser?.GetType() == typeof(Admin))
+            {
+                // admin ska inte kunna redigera resor 
+                btnEdit.Visibility = Visibility.Hidden;
             }
 
             // om det finns en packinglist, loopa igenom listan och printa infon om varje item. 
