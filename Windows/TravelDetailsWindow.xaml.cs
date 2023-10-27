@@ -43,6 +43,8 @@ namespace TravelPal_Newton.Windows
             if (travel.GetType().Name.Equals("Worktrip"))
             {
                 Worktrip work = (Worktrip)travel;
+                ListViewMeetingDetails.Visibility = Visibility.Visible;
+                lbldetails.Visibility = Visibility.Visible;
                 ListViewMeetingDetails.Items.Add(work.MeetingDetails);
             }
 
@@ -52,7 +54,7 @@ namespace TravelPal_Newton.Windows
                 btnEdit.Visibility = Visibility.Hidden;
             }
 
-            // om det finns en packinglist, loopa igenom listan och printa infon om varje item. 
+            // om det finns en packinglist, loopa igenom denna och printa infon om varje item. 
             if (travel.packingList != null && travel.packingList.Count > 0)
             {
                 foreach (PackingListItem item in travel.packingList)

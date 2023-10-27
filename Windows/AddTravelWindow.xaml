@@ -63,9 +63,9 @@
                     <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Label Content="Add travel" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="36" FontFamily="Segoe UI Historic"/>
+            <Label Name="lblselectCountry" Content="Add travel" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="36" FontFamily="Segoe UI Historic"/>
             <Label Content="Select country:" FontFamily="Segoe UI Historic" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
-            <Label Content="Select Travel: " FontFamily="Segoe UI Historic" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Name="lblSelectTravel" Content="Select Travel: " FontFamily="Segoe UI Historic" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
             <ComboBox Name="ComboTravelCountry" Grid.Row="1" Margin="10" Grid.Column="1"/>
             <ComboBox Name="ComboTravelType" Grid.Row="2" Margin="10" Grid.Column="1">
                 <ComboBoxItem Content="Travel"/>
@@ -85,6 +85,12 @@
             <TextBox Name="txtStartDate" Visibility="Hidden" Grid.Row="5" Grid.Column="1" Margin="15" />
             <TextBox Name="txtEndDate" Visibility="Hidden" Grid.Row="6" Grid.Column="1" Margin="15"/>
             <Button Name="btnfinish" Visibility="Hidden"  Content="Finish" Grid.Column="2" Width="70" Grid.Row="6" Style="{StaticResource Buttons}" Click="btnfinish_Click"/>
+            <Button Name="btnReturn" Grid.Column="5" Width="80" Grid.ColumnSpan="2" Grid.Row="6" Content="Return" Style="{StaticResource Buttons}" Click="btnReturn_Click"/>
+            <TextBox Name="txtPackingItem" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Name of item..."/>
+            <TextBox Name="txtPackingItemQuantity" Grid.Column="4" Grid.Row="3" Text="Quantity..."/>
+            <Button Name="BtnAddItem" Content="Add" Width="70" Grid.Column="5" Grid.Row="3" Style="{StaticResource Buttons}" Click="BtnAddItem_Click"/>
+            <Button Name="BtnDonePacking" Content="Done" Style="{StaticResource Buttons}" Width="70" Grid.Column="5" Grid.Row="4" IsEnabled="False" Click="BtnDonePacking_Click"/>
+            <ListView Name="PackingItemsListview" Margin="10" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
         </Grid>
     </Border>
 </Window>

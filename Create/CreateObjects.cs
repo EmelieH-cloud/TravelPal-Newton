@@ -21,6 +21,14 @@ namespace TravelPal_Newton.Create
             return worktrip;
         }
 
+        public OtherItem CreateItem(string name, string quantity)
+        {
+            int conversion = Convert.ToInt32(quantity);
+            OtherItem item = new(name, conversion);
+            return item;
+        }
+
+
         public Vacation CreateVacation(string startdate, string enddate, string destination, int travelers, Country country, bool inclusive)
         {
             DateTime startDateObject = validation.CreateDateTimeObject(startdate);

@@ -69,7 +69,7 @@ namespace TravelPal_Newton.Windows
 
         private void btnAddtravel_Click(object sender, RoutedEventArgs e)
         {
-            AddTravelWindow addtravelwindow = new AddTravelWindow(observableTravels);
+            AddTravelWindow addtravelwindow = new AddTravelWindow();
             addtravelwindow.Show();
             Close();
         }
