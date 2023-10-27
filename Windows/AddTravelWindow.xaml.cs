@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using TravelPal_Newton.Create;
 using TravelPal_Newton.Enums;
-using TravelPal_Newton.Interfaces;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
@@ -18,6 +17,9 @@ namespace TravelPal_Newton.Windows
     {
         Validation validation = new Validation();
         CreateObjects create = new();
+        Travel? addedTravel;
+
+
         public AddTravelWindow()
         {
             InitializeComponent();
@@ -33,17 +35,6 @@ namespace TravelPal_Newton.Windows
             // om ett index är valt...
             if (ComboTravelType.SelectedIndex > -1)
             {
-                BtnOK.Visibility = Visibility.Hidden;
-                btnfinish.Visibility = Visibility.Visible;
-                txtDestination.Visibility = Visibility.Visible;
-                txtEndDate.Visibility = Visibility.Visible;
-                txtStartDate.Visibility = Visibility.Visible;
-                txtTravelers.Visibility = Visibility.Visible;
-                lbldest.Visibility = Visibility.Visible;
-                lblend.Visibility = Visibility.Visible;
-                lbltravelers.Visibility = Visibility.Visible;
-                lblstartd.Visibility = Visibility.Visible;
-
                 // ..hämta comboBoxItem på valt index 
                 ComboBoxItem selected = (ComboBoxItem)ComboTravelType.SelectedItem;
                 //.. casta dess content till en string. 
@@ -59,6 +50,8 @@ namespace TravelPal_Newton.Windows
                         txtMeetingDetails.Visibility = Visibility.Visible;
                         break;
                 }
+                btnFinish.Visibility = Visibility.Visible;
+                BtnOK.Visibility = Visibility.Hidden;
             }
         }
         private void btnfinish_Click(object sender, RoutedEventArgs e)
@@ -106,6 +99,7 @@ namespace TravelPal_Newton.Windows
                                 // hämta signedInUser och lägg till denna resa på usern. 
                                 User userCast = (User)UserManager.signedInUser;
                                 AddTravelToUser(withAllInclusive, userCast);
+                                addedTravel = withAllInclusive;
                             }
                         }
 
@@ -120,8 +114,15 @@ namespace TravelPal_Newton.Windows
                                 // hämta signedInUser och lägg till denna resa på usern. 
                                 User userCast = (User)UserManager.signedInUser;
                                 AddTravelToUser(WithoutAllInclusive, userCast);
+                                addedTravel = WithoutAllInclusive;
+
                             }
                         }
+                    }
+
+                    if (!validation.CorrectDateFormat(startdate) || !validation.CorrectDateFormat(enddate) || !dateIsValid)
+                    {
+                        MessageBox.Show("Please make sure the date is written in correct format, and startdate must be earlier than enddate.");
                     }
 
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && txtMeetingDetails.IsVisible)
@@ -136,6 +137,8 @@ namespace TravelPal_Newton.Windows
                             // hämta signedInUser och lägg till denna resa på usern.
                             User userCast = (User)UserManager.signedInUser;
                             AddTravelToUser(worktrip, userCast);
+                            addedTravel = worktrip;
+
                         }
                     }
                     else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
@@ -149,10 +152,11 @@ namespace TravelPal_Newton.Windows
                             // hämta signedInUser och lägg till denna resa på usern.
                             User userCast = (User)UserManager.signedInUser;
                             AddTravelToUser(travel, userCast);
+                            addedTravel = travel;
+
                         }
                     }
-                    ClearAllFields();
-                    AskForPackingList();
+
                 }
 
                 else if (!validation.StringToInt(travelers))
@@ -160,6 +164,10 @@ namespace TravelPal_Newton.Windows
                     MessageBox.Show("Please provide the travelers input as a number.");
                     txtTravelers.Clear();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all fields");
             }
         }
 
@@ -175,60 +183,6 @@ namespace TravelPal_Newton.Windows
                 List<Travel> travelsList = new();
                 travelsList.Add(travel);
                 user.travels = travelsList;
-            }
-        }
-
-        public void ClearAllFields()
-        {
-            txtDestination.Clear();
-            txtStartDate.Clear();
-            txtEndDate.Clear();
-            txtTravelers.Clear();
-            ComboTravelCountry.SelectedIndex = -1;
-            ComboTravelType.SelectedIndex = -1;
-            txtMeetingDetails.Visibility = Visibility.Hidden;
-            checkInclusive.Visibility = Visibility.Hidden;
-        }
-
-        public void AskForPackingList()
-        {
-            string sMessageBoxText = "Travel created. Do you want to add a packing list?";
-            string sCaption = "Packing List";
-            MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
-            MessageBoxResult answerMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox);
-
-            switch (answerMessageBox)
-            {
-                case MessageBoxResult.Yes:
-
-                    // Visa alla element som behövs för att skapa ett PackingListItem 
-                    txtPackingItem.Visibility = Visibility.Visible;
-                    txtPackingItemQuantity.Visibility = Visibility.Visible;
-                    BtnAddItem.Visibility = Visibility.Visible;
-
-                    // Göm alla övriga element 
-                    ComboTravelCountry.Visibility = Visibility.Hidden;
-                    txtDestination.Visibility = Visibility.Hidden;
-                    ComboTravelType.Visibility = Visibility.Hidden;
-                    txtEndDate.Visibility = Visibility.Hidden;
-                    txtStartDate.Visibility = Visibility.Hidden;
-                    txtTravelers.Visibility = Visibility.Hidden;
-                    lbldest.Visibility = Visibility.Hidden;
-                    lblend.Visibility = Visibility.Hidden;
-                    lblmdetails.Visibility = Visibility.Hidden;
-                    lbltravelers.Visibility = Visibility.Hidden;
-                    lblSelectTravel.Visibility = Visibility.Hidden;
-                    lblselectCountry.Visibility = Visibility.Hidden;
-                    btnfinish.Visibility = Visibility.Hidden;
-                    txtMeetingDetails.Visibility = Visibility.Hidden;
-                    checkInclusive.Visibility = Visibility.Hidden;
-
-                    break;
-                case MessageBoxResult.No:
-
-                    break;
-
-
             }
         }
 
@@ -257,48 +211,8 @@ namespace TravelPal_Newton.Windows
 
         }
 
-        private void BtnAddItem_Click(object sender, RoutedEventArgs e)
-        {
-            string itemName = txtPackingItem.Text;
-            string itemQuantity = txtPackingItemQuantity.Text;
-
-            if (validation.StringToInt(itemQuantity) && !string.IsNullOrEmpty(itemName))
-            {
-                int conversion = Convert.ToInt32(itemQuantity);
-                OtherItem item = new(itemName, conversion);
-                PackingItemsListview.Items.Add(item.GetInfo());
-            }
-            else
-            {
-                MessageBox.Show("Please fill in both fields and provide the quantity as a number.");
-            }
-        }
-
-        private void BtnDonePacking_Click(object sender, RoutedEventArgs e)
-        {
-            // Användaren måste ha lagt till minst 1 item. 
-            if (PackingItemsListview.Items.Count >= 1)
-            {
-                // Skapa en ny packinglist. 
-                List<PackingListItem> packinglist = new();
-
-                // lägg till alla items i denna packinglist. 
-                foreach (PackingListItem item in PackingItemsListview.Items)
-                {
-                    packinglist.Add(item);
-                }
-                // Hämta den senast tillagda resan. 
-                Travel travel = TravelManager.travels[^1];
-
-                // tilldela packinglist 
-                travel.packingList = packinglist;
-                PackingItemsListview.Items.Remove(packinglist);
-            }
-        }
     }
 }
-
-
 
 
 

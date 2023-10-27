@@ -1,5 +1,4 @@
-﻿using System;
-using TravelPal_Newton.Interfaces;
+﻿using TravelPal_Newton.Interfaces;
 
 namespace TravelPal_Newton.Models
 {
@@ -15,7 +14,7 @@ namespace TravelPal_Newton.Models
         }
         public string GetInfo()
         {
-            throw new NotImplementedException();
+            return $"{Name}, Required: {Required}";
         }
     }
 }

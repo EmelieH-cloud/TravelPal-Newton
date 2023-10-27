@@ -64,7 +64,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="T R A V E L P A L" FontFamily="Arial" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+            <Label Content="T R A V E L P A L" FontFamily="Microsoft YaHei UI Light" Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36"/>
             <TextBox Name="txtUsername" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Height="35" Width="240" Text="Username" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center"/>
             <PasswordBox Name="txtPassword" Grid.Column="1"  VerticalContentAlignment="Center" Grid.Row="4" FontSize="20" Grid.ColumnSpan="3" Height="35" Width="240" />
             <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="3" Grid.Column="2" Margin="5">
@@ -72,8 +72,8 @@
             </StackPanel>
             <Button Name="BtnSignIn" Margin="10"  Grid.Column="1" Grid.Row="5" Grid.RowSpan="1"  Grid.ColumnSpan="3" Content="Sign in" Style="{StaticResource Buttons}" Click="BtnSignIn_Click"/>
             <Label Name="lblFeedback" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" Content="Feedback" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label Name="lblJoinUs" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Content="Not a member yet?" FontSize="20" VerticalContentAlignment="Center"/>
-            <Button Name="BtnRegister" Grid.Row="1" Style="{StaticResource Buttons}" Content="Register" Grid.ColumnSpan="1" Width="120" Click="BtnRegister_Click"/>
+            <Label Name="lblJoinUs" Grid.Column="3" Grid.ColumnSpan="2" FontFamily="Microsoft YaHei UI Light" Grid.Row="5" Content="Not a member yet?" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+            <Button Name="BtnRegister" Grid.Column="5" Grid.Row="6" Style="{StaticResource Buttons}" Content="Register" Grid.ColumnSpan="1" Width="120" Click="BtnRegister_Click"/>
         </Grid>
     </Border>
 </Window>

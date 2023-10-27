@@ -63,9 +63,9 @@
                     <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Label Name="lblselectCountry" Content="Add travel" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="36" FontFamily="Segoe UI Historic"/>
-            <Label Content="Select country:" FontFamily="Segoe UI Historic" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18"/>
-            <Label Name="lblSelectTravel" Content="Select Travel: " FontFamily="Segoe UI Historic" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+            <Label Name="lblHeader" Content="Add travel" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="36" FontFamily="Microsoft YaHei UI Light"  FontWeight="Bold" HorizontalContentAlignment="Right" HorizontalAlignment="Left"/>
+            <Label Content="Country:" Name="lblselCountry" FontFamily="Microsoft YaHei UI Light"  Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" />
+            <Label Name="lblSelectTravel" Content="Travel type:" FontFamily="Microsoft YaHei UI Light" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"  />
             <ComboBox Name="ComboTravelCountry" Grid.Row="1" Margin="10" Grid.Column="1"/>
             <ComboBox Name="ComboTravelType" Grid.Row="2" Margin="10" Grid.Column="1">
                 <ComboBoxItem Content="Travel"/>
@@ -73,24 +73,19 @@
                 <ComboBoxItem Content="Worktrip"/>
             </ComboBox>
             <Button Name="BtnOK" Style="{StaticResource Buttons}" Width="80" Content="ok" Grid.Column="2" Grid.Row="2" Click="BtnOK_Click"/>
-            <Label Content="Meeting details:" Name="lblmdetails" Visibility="Hidden" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Bottom" FontSize="16"/>
-            <Label Name="lbltravelers" Content="Travelers:" Grid.Row="3" Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Name="lbldest"  Content="Destination:" Grid.Row="4" Visibility="Hidden" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
-            <Label Name="lblstartd" Content="Startdate:" Grid.Row="5" Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-            <Label Name="lblend" Content="Enddate:" Grid.Row="6" HorizontalContentAlignment="Center" Visibility="Hidden" VerticalContentAlignment="Center" FontSize="18"/>
-            <TextBox Name="txtMeetingDetails" Visibility="Hidden" FontFamily="Segoe UI Historic" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"/>
-            <CheckBox Name="checkInclusive" Content="All inclusive?" Visibility="Hidden"  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Historic"/>
-            <TextBox Name="txtTravelers" Grid.Row="3" Grid.Column="1" Visibility="Hidden" Margin="15" Width="70"/>
-            <TextBox Name="txtDestination" Grid.Row="4" Grid.Column="1" Visibility="Hidden" Margin="15"/>
-            <TextBox Name="txtStartDate" Visibility="Hidden" Grid.Row="5" Grid.Column="1" Margin="15" />
-            <TextBox Name="txtEndDate" Visibility="Hidden" Grid.Row="6" Grid.Column="1" Margin="15"/>
-            <Button Name="btnfinish" Visibility="Hidden"  Content="Finish" Grid.Column="2" Width="70" Grid.Row="6" Style="{StaticResource Buttons}" Click="btnfinish_Click"/>
+            <Label Content="Meeting details:" Name="lblmdetails" Grid.Column="3" Visibility="Hidden" Grid.Row="1" VerticalContentAlignment="Bottom" FontSize="16"/>
+            <Label Name="lbltravelers" Content="Travelers:" Grid.Row="3" FontFamily="Microsoft YaHei UI Light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label Name="lbldest"  Content="Destination:" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
+            <Label Name="lblstartd" Content="Startdate:" Grid.Row="5"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
+            <Label Name="lblend" Content="Enddate:" Grid.Row="6" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
+            <TextBox Name="txtMeetingDetails" Visibility="Hidden"  FontFamily="Segoe UI Historic" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"/>
+            <CheckBox Name="checkInclusive"  Content="All inclusive?" Visibility="Hidden"  Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Historic"/>
+            <TextBox Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="100"/>
+            <TextBox Name="txtDestination" Grid.Row="4" Grid.Column="1"  Margin="15"/>
+            <TextBox Name="txtStartDate"  Grid.Row="5" Grid.Column="1" Margin="15" />
+            <TextBox Name="txtEndDate"  Grid.Row="6" Grid.Column="1" Margin="15"/>
             <Button Name="btnReturn" Grid.Column="5" Width="80" Grid.ColumnSpan="2" Grid.Row="6" Content="Return" Style="{StaticResource Buttons}" Click="btnReturn_Click"/>
-            <TextBox Name="txtPackingItem" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Text="Name of item..."/>
-            <TextBox Name="txtPackingItemQuantity" Grid.Column="4" Grid.Row="3" Text="Quantity..."/>
-            <Button Name="BtnAddItem" Content="Add" Width="70" Grid.Column="5" Grid.Row="3" Style="{StaticResource Buttons}" Click="BtnAddItem_Click"/>
-            <Button Name="BtnDonePacking" Content="Done" Style="{StaticResource Buttons}" Width="70" Grid.Column="5" Grid.Row="4" IsEnabled="False" Click="BtnDonePacking_Click"/>
-            <ListView Name="PackingItemsListview" Margin="10" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+            <Button Name="btnFinish" Visibility="Hidden" Click="btnfinish_Click" Grid.ColumnSpan="2" Content="Create travel" Width="150" Style="{StaticResource Buttons}" Grid.Column="2" Grid.Row="6"/>
         </Grid>
     </Border>
 </Window>
