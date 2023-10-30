@@ -25,6 +25,10 @@ namespace TravelPal_Newton.Windows
         {
             InitializeComponent();
 
+            HideAllAddTravelElements();
+
+            HideAllPackingListElements();
+
             // fyller comboboxen med Enum.Country 
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
@@ -36,6 +40,15 @@ namespace TravelPal_Newton.Windows
             // om ett index är valt...
             if (ComboTravelType.SelectedIndex > -1)
             {
+                txtDestination.Visibility = Visibility.Visible;
+                txtStartDate.Visibility = Visibility.Visible;
+                txtEndDate.Visibility = Visibility.Visible;
+                txtTravelers.Visibility = Visibility.Visible;
+                lbltravelers.Visibility = Visibility.Visible;
+                lbldest.Visibility = Visibility.Visible;
+                lblstartd.Visibility = Visibility.Visible;
+                lblend.Visibility = Visibility.Visible;
+
                 // ..hämta comboBoxItem på valt index 
                 ComboBoxItem selected = (ComboBoxItem)ComboTravelType.SelectedItem;
                 //.. casta dess content till en string. 
@@ -93,7 +106,7 @@ namespace TravelPal_Newton.Windows
                         bool dateIsValid = DateIsValid(startdate, enddate);
 
                         //---------------------- fortsätt endast om datumen är skrivna i rätt format och datumen är giltliga---------------------------------//
-                        if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid)
+                        if (dateIsValid)
                         {
                             if (checkInclusive.IsVisible && checkInclusive.IsChecked == true)
                             {
@@ -102,7 +115,9 @@ namespace TravelPal_Newton.Windows
                                 TravelManager.travels.Add(withAllInclusive);
                                 ClearFields();
                                 MessageBox.Show("Travel created. You may now create a packlist");
+                                ShowAllPackingListElements();
 
+                                HideAllAddTravelElements();
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
                                     // hämta signedInUser och lägg till resa på usern. 
@@ -119,7 +134,8 @@ namespace TravelPal_Newton.Windows
                                 TravelManager.travels.Add(WithoutAllInclusive);
                                 ClearFields();
                                 MessageBox.Show("Travel created. You may now create a packlist");
-
+                                ShowAllPackingListElements();
+                                HideAllAddTravelElements();
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
                                     // hämta signedInUser och lägg till denna resa på usern. 
@@ -138,7 +154,8 @@ namespace TravelPal_Newton.Windows
                                 TravelManager.travels.Add(worktrip);
                                 ClearFields();
                                 MessageBox.Show("Travel created. You may now create a packlist");
-
+                                ShowAllPackingListElements();
+                                HideAllAddTravelElements();
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
 
@@ -155,6 +172,8 @@ namespace TravelPal_Newton.Windows
                                 TravelManager.travels.Add(travel);
                                 ClearFields();
                                 MessageBox.Show("Travel created. You may now create a packlist");
+                                ShowAllPackingListElements();
+                                HideAllAddTravelElements();
 
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
@@ -164,28 +183,78 @@ namespace TravelPal_Newton.Windows
 
                                 }
                             }
-                            BtnConfirm.IsEnabled = true;
-                            btnPackingListComplete.IsEnabled = true;
+                            btnFinish.Visibility = Visibility.Hidden;
                             // avgör om länderna är utanför eller innanför EU 
                             checkEUcountries();
 
                         }
-
+                        else if (!dateIsValid)
+                        {
+                            MessageBox.Show("Startdate must be earlier than enddate.");
+                        }
                         //-----------------------------------------------------------------------------------------------------------------//
 
                     }
-
-                    else
+                    else if (!startdateFormat || !enddateFormat)
                     {
-                        MessageBox.Show("Startdate and enddate must be written in correct format. Startdate must also be earlier than enddate.");
+                        MessageBox.Show("Please provide the dates in correct format");
                     }
 
                 }
+                else if (!validation.StringToInt(travelers))
+                {
+                    MessageBox.Show("Please provide the travelers in number format");
+                }
+
             }
-            else
-            {
-                MessageBox.Show("Please fill in all fields.");
-            }
+
+        }
+
+        public void HideAllAddTravelElements()
+        {
+            txtDestination.Visibility = Visibility.Hidden;
+            txtStartDate.Visibility = Visibility.Hidden;
+            txtEndDate.Visibility = Visibility.Hidden;
+            txtTravelers.Visibility = Visibility.Hidden;
+            lbltravelers.Visibility = Visibility.Hidden;
+            lbldest.Visibility = Visibility.Hidden;
+            lblstartd.Visibility = Visibility.Hidden;
+            lblend.Visibility = Visibility.Hidden;
+        }
+
+        public void HideAllPackingListElements()
+        {
+
+            lblitem.Visibility = Visibility.Hidden;
+            txtItemName.Visibility = Visibility.Hidden;
+            BtnConfirm.Visibility = Visibility.Hidden;
+            CheckTravelDocument.Visibility = Visibility.Hidden;
+            packingListView.Visibility = Visibility.Hidden;
+            btnPackingListComplete.Visibility = Visibility.Hidden;
+            lblaskforTravel.Visibility = Visibility.Hidden;
+            lblPackingList.Visibility = Visibility.Hidden;
+            lblConfirmChoice.Visibility = Visibility.Hidden;
+            lblLastStep.Visibility = Visibility.Hidden;
+            lblIsDocumentRequired.Visibility = Visibility.Hidden;
+        }
+
+        public void ShowAllPackingListElements()
+        {
+            lblitem.Visibility = Visibility.Visible;
+            txtItemName.Visibility = Visibility.Visible;
+            BtnConfirm.Visibility = Visibility.Visible;
+            CheckTravelDocument.Visibility = Visibility.Visible;
+            packingListView.Visibility = Visibility.Visible;
+            btnPackingListComplete.Visibility = Visibility.Visible;
+            lblPackingList.Visibility = Visibility.Visible;
+            lblaskforTravel.Visibility = Visibility.Visible;
+            ComboTravelCountry.Visibility = Visibility.Hidden;
+            ComboTravelType.Visibility = Visibility.Hidden;
+            lblselCountry.Visibility = Visibility.Hidden;
+            lblSelectTravel.Visibility = Visibility.Hidden;
+            BtnOK.Visibility = Visibility.Hidden;
+            lblConfirmChoice.Visibility = Visibility.Visible;
+
         }
 
         public void AddTravelToUser(Travel travel, User user)
@@ -234,6 +303,7 @@ namespace TravelPal_Newton.Windows
             BtnConfirm.Visibility = Visibility.Hidden;
             // visa add-knappen
             btnAddTravelDocument.Visibility = Visibility.Visible;
+            lblIsDocumentRequired.Visibility = Visibility.Visible;
 
             if (CheckTravelDocument.IsChecked == true)
             {
@@ -244,8 +314,10 @@ namespace TravelPal_Newton.Windows
             else if (CheckTravelDocument.IsChecked == false)
             {
                 // visa textboxen för quantity 
+                txtQuantity.Text = "";
                 txtQuantity.Visibility = Visibility.Visible;
                 lblquantity.Visibility = Visibility.Visible;
+                CheckRequired.Visibility = Visibility.Hidden;
             }
 
         }
@@ -371,9 +443,18 @@ namespace TravelPal_Newton.Windows
                 MessageBox.Show("Packinglist sucessfully added.");
                 txtItemName.Clear();
                 packingListView.Items.Clear();
+                HideAllPackingListElements();
+                ComboTravelCountry.Visibility = Visibility.Visible;
+                ComboTravelType.Visibility = Visibility.Visible;
+                lblselCountry.Visibility = Visibility.Visible;
+                lblSelectTravel.Visibility = Visibility.Visible;
+                BtnOK.Visibility = Visibility.Visible;
+                txtQuantity.Visibility = Visibility.Hidden;
+                lblquantity.Visibility = Visibility.Hidden;
             }
 
         }
+
     }
 }
 
