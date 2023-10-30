@@ -58,6 +58,7 @@ namespace TravelPal_Newton.Validator
 
             DateTime newDateTime = new DateTime(yearAsInt, monthAsInt, dayAsInt);
             return newDateTime;
+
         }
 
         // CorrectDateFormat()

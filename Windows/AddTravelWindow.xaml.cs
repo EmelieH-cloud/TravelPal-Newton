@@ -86,103 +86,97 @@ namespace TravelPal_Newton.Windows
                     bool startdateFormat = validation.CorrectDateFormat(startdate);
                     bool enddateFormat = validation.CorrectDateFormat(enddate);
 
-                    // skapa en bool, kommer vara true om datumen är giltliga
-                    bool dateIsValid = DateIsValid(startdate, enddate);
-
-                    // fortsätt endast om datumen är skrivna i rätt format, datumen är giltliga och checkboxen syns. 
-                    if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && checkInclusive.IsVisible)
+                    if (startdateFormat && enddateFormat)
                     {
-                        if (checkInclusive.IsChecked == true)
-                        {
-                            // Skapa en vacation med all-inclusive. 
-                            Vacation withAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, true);
-                            TravelManager.travels.Add(withAllInclusive);
-                            ClearFields();
-                            MessageBox.Show("Travel created. You may now create a packlist");
+                        // skapa en bool som kommer vara true om datumen är giltliga
+                        bool dateIsValid = DateIsValid(startdate, enddate);
 
-                            if (UserManager.signedInUser?.GetType() == typeof(User))
+                        //---------------------- fortsätt endast om datumen är skrivna i rätt format och datumen är giltliga---------------------------------//
+                        if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid)
+                        {
+                            if (checkInclusive.IsVisible && checkInclusive.IsChecked == true)
                             {
-                                // hämta signedInUser och lägg till denna resa på usern. 
-                                User userCast = (User)UserManager.signedInUser;
-                                AddTravelToUser(withAllInclusive, userCast);
-                                addedTravel = withAllInclusive;
+                                // Skapa en vacation, all-inclusive. 
+                                Vacation withAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, true);
+                                TravelManager.travels.Add(withAllInclusive);
+                                ClearFields();
+                                MessageBox.Show("Travel created. You may now create a packlist");
+
+                                if (UserManager.signedInUser?.GetType() == typeof(User))
+                                {
+                                    // hämta signedInUser och lägg till resa på usern. 
+                                    User userCast = (User)UserManager.signedInUser;
+                                    AddTravelToUser(withAllInclusive, userCast);
+                                    addedTravel = withAllInclusive;
+                                }
                             }
-                        }
 
-                        else if (checkInclusive.IsChecked == false)
-                        {
-                            // Skapa en vacation utan all-inclusive 
-                            Vacation WithoutAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, false);
-                            TravelManager.travels.Add(WithoutAllInclusive);
-                            ClearFields();
-                            MessageBox.Show("Travel created. You may now create a packlist");
-
-                            if (UserManager.signedInUser?.GetType() == typeof(User))
+                            else if (checkInclusive.IsChecked == false)
                             {
-                                // hämta signedInUser och lägg till denna resa på usern. 
-                                User userCast = (User)UserManager.signedInUser;
-                                AddTravelToUser(WithoutAllInclusive, userCast);
-                                addedTravel = WithoutAllInclusive;
+                                // Skapa en vacation, utan all-inclusive 
+                                Vacation WithoutAllInclusive = create.CreateVacation(startdate, enddate, destination, intTravelers, country, false);
+                                TravelManager.travels.Add(WithoutAllInclusive);
+                                ClearFields();
+                                MessageBox.Show("Travel created. You may now create a packlist");
 
+                                if (UserManager.signedInUser?.GetType() == typeof(User))
+                                {
+                                    // hämta signedInUser och lägg till denna resa på usern. 
+                                    User userCast = (User)UserManager.signedInUser;
+                                    AddTravelToUser(WithoutAllInclusive, userCast);
+                                    addedTravel = WithoutAllInclusive;
+
+                                }
                             }
+
+                            else if (txtMeetingDetails.IsVisible)
+                            {
+                                // Skapa en worktrip
+                                string meetingdetails = txtMeetingDetails.Text;
+                                Worktrip worktrip = create.CreateWorktrip(startdate, enddate, destination, intTravelers, country, meetingdetails);
+                                TravelManager.travels.Add(worktrip);
+                                ClearFields();
+                                MessageBox.Show("Travel created. You may now create a packlist");
+
+                                if (UserManager.signedInUser?.GetType() == typeof(User))
+                                {
+                                    // hämta signedInUser och lägg till denna resa på usern.
+                                    User userCast = (User)UserManager.signedInUser;
+                                    AddTravelToUser(worktrip, userCast);
+                                    addedTravel = worktrip;
+
+                                }
+                            }
+                            else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
+                            {
+                                // Skapa en travel 
+                                Travel travel = create.CreateTravel(startdate, enddate, destination, intTravelers, country);
+                                TravelManager.travels.Add(travel);
+                                ClearFields();
+                                MessageBox.Show("Travel created. You may now create a packlist");
+
+                                if (UserManager.signedInUser?.GetType() == typeof(User))
+                                {
+                                    // hämta signedInUser och lägg till denna resa på usern.
+                                    User userCast = (User)UserManager.signedInUser;
+                                    AddTravelToUser(travel, userCast);
+                                    addedTravel = travel;
+                                    // avgör om länderna är utanför eller innanför EU 
+                                    checkEUcountries();
+                                }
+                            }
+                            BtnConfirm.IsEnabled = true;
+                            btnPackingListComplete.IsEnabled = true;
+
                         }
-                    }
+                        //-----------------------------------------------------------------------------------------------------------------//
 
-                    if (!validation.CorrectDateFormat(startdate) || !validation.CorrectDateFormat(enddate) || !dateIsValid)
+                    }
+                    else
                     {
-                        MessageBox.Show("Please make sure the date is written in correct format, and startdate must be earlier than enddate.");
+                        MessageBox.Show("Please fill in all fields and make sure the date-format is written as DD/MM/YY. Startdate must be earlier than enddate.");
                     }
-
-                    else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && txtMeetingDetails.IsVisible)
-                    {
-                        // Skapa en worktrip
-                        string meetingdetails = txtMeetingDetails.Text;
-                        Worktrip worktrip = create.CreateWorktrip(startdate, enddate, destination, intTravelers, country, meetingdetails);
-                        TravelManager.travels.Add(worktrip);
-                        ClearFields();
-                        MessageBox.Show("Travel created. You may now create a packlist");
-
-                        if (UserManager.signedInUser?.GetType() == typeof(User))
-                        {
-                            // hämta signedInUser och lägg till denna resa på usern.
-                            User userCast = (User)UserManager.signedInUser;
-                            AddTravelToUser(worktrip, userCast);
-                            addedTravel = worktrip;
-
-                        }
-                    }
-                    else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
-                    {
-                        // Skapa en travel 
-                        Travel travel = create.CreateTravel(startdate, enddate, destination, intTravelers, country);
-                        TravelManager.travels.Add(travel);
-                        ClearFields();
-                        MessageBox.Show("Travel created. You may now create a packlist");
-
-                        if (UserManager.signedInUser?.GetType() == typeof(User))
-                        {
-                            // hämta signedInUser och lägg till denna resa på usern.
-                            User userCast = (User)UserManager.signedInUser;
-                            AddTravelToUser(travel, userCast);
-                            addedTravel = travel;
-                            // avgör om länderna är utanför eller innanför EU 
-                            checkEUcountries();
-                        }
-                    }
-                    BtnConfirm.IsEnabled = true;
-                    btnPackingListComplete.IsEnabled = true;
-
                 }
-
-                else if (!validation.StringToInt(travelers))
-                {
-                    MessageBox.Show("Please provide the travelers input as a number.");
-                    txtTravelers.Clear();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill in all fields");
             }
         }
 

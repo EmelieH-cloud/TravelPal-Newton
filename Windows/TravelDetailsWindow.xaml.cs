@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
 using TravelPal_Newton.Enums;
 using TravelPal_Newton.Interfaces;
 using TravelPal_Newton.Managers;
@@ -115,13 +114,11 @@ namespace TravelPal_Newton.Windows
                     // Gör en cast från string till enum. 
                     Country enumCast = (Country)Enum.Parse(typeof(Country), newCountry);
                     selectedTravel.TheCountry = enumCast;
-                    lblTravelersFeedback.Foreground = Brushes.Green;
                     lblCountryFeedback.Content = "Country was successfully updated.";
                     txtCountry.Clear();
                 }
                 else if (!newCountryIsAvailable)
                 {
-                    lblTravelersFeedback.Foreground = Brushes.Red;
                     lblCountryFeedback.Content = "That country is unfortunately not available.";
                     txtCountry.Clear();
                 }
@@ -130,7 +127,6 @@ namespace TravelPal_Newton.Windows
             // Uppdatera Destination--------------------------------------------------
             if (!updateDestination)
             {
-                lblTravelersFeedback.Foreground = Brushes.Green;
                 selectedTravel.Destination = newDestination;
                 lblDestinationFeedback.Content = "Destination was sucessfully updated";
                 txtDestination.Clear();
@@ -145,13 +141,11 @@ namespace TravelPal_Newton.Windows
                 if (stringToIntConversion)
                 {
                     selectedTravel.Travellers = intResult;
-                    lblTravelersFeedback.Foreground = Brushes.Green;
                     lblTravelersFeedback.Content = "Travelers was sucessfully updated";
                     txtTravelers.Clear();
                 }
                 else if (!stringToIntConversion)
                 {
-                    lblTravelersFeedback.Foreground = Brushes.Red;
                     lblTravelersFeedback.Content = "Please input the number of travelers as a digit";
                     txtTravelers.Clear();
                 }
@@ -167,14 +161,12 @@ namespace TravelPal_Newton.Windows
                     if (dateIsValid)
                     {
                         selectedTravel.StartDate = startdate;
-                        lblStartDateFeedback.Foreground = Brushes.Green;
                         lblStartDateFeedback.Content = "StartDate was sucessfully updated";
                         txtStartDate.Clear();
                     }
 
                     else if (!dateIsValid)
                     {
-                        lblStartDateFeedback.Foreground = Brushes.Red;
                         lblStartDateFeedback.Content = "StartDate must be sooner than EndDate";
                         txtStartDate.Clear();
                     }
@@ -193,14 +185,12 @@ namespace TravelPal_Newton.Windows
                     if (dateIsValid)
                     {
                         selectedTravel.EndDate = endDate;
-                        lblTravelersFeedback.Foreground = Brushes.Green;
                         lblEndDateFeedback.Content = "EndDate was sucessfully updated";
                         txtEndDate.Clear();
                     }
 
                     else if (!dateIsValid)
                     {
-                        lblEndDateFeedback.Foreground = Brushes.Red;
                         lblEndDateFeedback.Content = "StartDate must be sooner than EndDate";
                         txtEndDate.Clear();
                     }
