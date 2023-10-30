@@ -70,7 +70,7 @@
             <Label Content="Country:" Foreground="White" Name="lblselCountry" FontFamily="Microsoft YaHei UI Light"  Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" />
             <Label Name="lblSelectTravel" Foreground="White" Content="Travel type:" FontFamily="Microsoft YaHei UI Light" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"  />
             <ComboBox Name="ComboTravelCountry" Grid.Row="1" VerticalContentAlignment="Center" Height="50" Margin="10" Grid.Column="1" FontSize="14"/>
-            <ComboBox Name="ComboTravelType" Grid.Row="2" VerticalContentAlignment="Center" Margin="10" Height="50" Grid.Column="1" FontSize="14">
+            <ComboBox Name="ComboTravelType" Grid.Row="2" VerticalContentAlignment="Center" Margin="10" Height="50" Grid.Column="1" FontSize="14" VerticalAlignment="Bottom">
                 <ComboBoxItem Content="Travel"/>
                 <ComboBoxItem Content="Vacation"/>
                 <ComboBoxItem Content="Worktrip"/>
@@ -83,7 +83,7 @@
             <Label Name="lblend" Content="Enddate:" Foreground="White" Grid.Row="6" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
             <TextBox Name="txtMeetingDetails" Visibility="Hidden"  FontFamily="Segoe UI Historic" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
             <CheckBox Name="checkInclusive" Foreground="White" Content="All inclusive?" Visibility="Hidden"  Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Historic"/>
-            <TextBox Name="txtTravelers" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="15" Width="100" FontSize="14"/>
+            <TextBox Name="txtTravelers" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="15" Width="100" FontSize="14" VerticalAlignment="Bottom"/>
             <TextBox Name="txtDestination" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="1"  Margin="15" FontSize="14"/>
             <TextBox Name="txtStartDate" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Grid.Row="5" Grid.Column="1" Margin="15" FontSize="14" Text="DD/MM/YY" />
             <TextBox Name="txtEndDate" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Grid.Row="6" Grid.Column="1" Margin="15" FontSize="14" Text="DD/MM/YY"/>
@@ -92,11 +92,11 @@
             <Label Name="lblquantity" Content="4. Quantity:" Visibility="Hidden" FontFamily="Microsoft YaHei UI Light" Foreground="White" Grid.Row="6" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14"/>
             <Button Name="btnReturn" Margin="10" Grid.Column="6" Width="100" Grid.ColumnSpan="2" Grid.Row="0" Content="Return" Style="{StaticResource Buttons}" Click="btnReturn_Click" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             <Button Name="btnFinish" Visibility="Hidden"   Click="btnfinish_Click" Content="Create" Height="50" Width="80" Style="{StaticResource Buttons}" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Name="BtnConfirm" IsEnabled="False" Grid.Column="7" Height="40" Content="3. Confirm" Grid.Row="4" Width="90" Margin="10" Style="{StaticResource Buttons}" HorizontalAlignment="Right" Click="BtnConfirm_Click" FontSize="18"/>
+            <Button Name="BtnConfirm" IsEnabled="False" Grid.Column="7" Height="40" Content="Confirm" Grid.Row="4" Width="90" Margin="10" Style="{StaticResource Buttons}" HorizontalAlignment="Right" Click="BtnConfirm_Click" FontSize="18"/>
             <Button Name="btnAddTravelDocument" Visibility="Hidden"  Height="50" Content="OK" Grid.Column="7" Grid.Row="5" Style="{StaticResource Buttons}" Width="90" Click="btnAddTravelDocument_Click"/>
-            <Button Name="btnPackingListComplete" IsEnabled="False" Background="darkslateBlue" Height="40" Margin="5" Grid.Column="6" Grid.ColumnSpan="2" Width="140" Grid.Row="6" Content="Register list" Style="{StaticResource Buttons}" Click="btnPackingListComplete_Click" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="24" />
-            <Label Content="1. Item:" Foreground="White" FontFamily="Microsoft YaHei UI Light" Grid.Column="3" Grid.Row="4" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
-            <CheckBox Name="CheckTravelDocument" Grid.ColumnSpan="2" Content="2. Traveldocument?" FontFamily="Microsoft YaHei UI Light"  Foreground="White" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" />
+            <Button Name="btnPackingListComplete" IsEnabled="False" Background="darkslateBlue" Height="40" Margin="5" Grid.Column="6" Grid.ColumnSpan="2" Width="170" Grid.Row="6" Content="Register packinglist" Style="{StaticResource Buttons}" Click="btnPackingListComplete_Click" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" />
+            <Label Content="Item:" Foreground="White" FontFamily="Microsoft YaHei UI Light" Grid.Column="3" Grid.Row="4" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+            <CheckBox Name="CheckTravelDocument" Grid.ColumnSpan="2" Content="Traveldocument?" FontFamily="Microsoft YaHei UI Light"  Foreground="White" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16" Margin="0,35,15,0" />
             <CheckBox Name="CheckRequired" Visibility="Hidden" FontFamily="Microsoft YaHei UI Light"  Content="4. Required?" Foreground="White" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ListView Name="packingListView"  Margin="10" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" />
         </Grid>

@@ -107,7 +107,6 @@ namespace TravelPal_Newton.Windows
 
                 MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
                 MessageBoxImage iconMessageBox = MessageBoxImage.Warning;
-
                 MessageBoxResult resultMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, iconMessageBox);
 
                 switch (resultMessageBox)
@@ -117,8 +116,10 @@ namespace TravelPal_Newton.Windows
                         TravelManager.travels.Remove(travel);
                         break;
                 }
-
-
+            }
+            else if (travel == null)
+            {
+                MessageBox.Show("Please select a travel in the list.");
             }
         }
     }

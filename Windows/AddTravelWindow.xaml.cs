@@ -54,6 +54,7 @@ namespace TravelPal_Newton.Windows
                 btnFinish.Visibility = Visibility.Visible;
                 BtnOK.Visibility = Visibility.Hidden;
             }
+
         }
         private void btnfinish_Click(object sender, RoutedEventArgs e)
         {
@@ -82,7 +83,7 @@ namespace TravelPal_Newton.Windows
                     //konvertera isåfall...
                     int intTravelers = Convert.ToInt32(travelers);
 
-                    // skapa en bool för vardera datum, kommer vara true om båda datum är i korrekt format. 
+                    // skapa en bool för vardera datum som kommer vara true om båda datum är i korrekt format. 
                     bool startdateFormat = validation.CorrectDateFormat(startdate);
                     bool enddateFormat = validation.CorrectDateFormat(enddate);
 
@@ -140,14 +141,14 @@ namespace TravelPal_Newton.Windows
 
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
-                                    // hämta signedInUser och lägg till denna resa på usern.
+
                                     User userCast = (User)UserManager.signedInUser;
                                     AddTravelToUser(worktrip, userCast);
                                     addedTravel = worktrip;
 
                                 }
                             }
-                            else if (validation.CorrectDateFormat(startdate) && validation.CorrectDateFormat(enddate) && dateIsValid && !checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
+                            else if (!checkInclusive.IsVisible && !txtMeetingDetails.IsVisible)
                             {
                                 // Skapa en travel 
                                 Travel travel = create.CreateTravel(startdate, enddate, destination, intTravelers, country);
@@ -157,26 +158,33 @@ namespace TravelPal_Newton.Windows
 
                                 if (UserManager.signedInUser?.GetType() == typeof(User))
                                 {
-                                    // hämta signedInUser och lägg till denna resa på usern.
                                     User userCast = (User)UserManager.signedInUser;
                                     AddTravelToUser(travel, userCast);
                                     addedTravel = travel;
-                                    // avgör om länderna är utanför eller innanför EU 
-                                    checkEUcountries();
+
                                 }
                             }
                             BtnConfirm.IsEnabled = true;
                             btnPackingListComplete.IsEnabled = true;
+                            // avgör om länderna är utanför eller innanför EU 
+                            checkEUcountries();
 
                         }
+
                         //-----------------------------------------------------------------------------------------------------------------//
 
                     }
+
                     else
                     {
-                        MessageBox.Show("Please fill in all fields and make sure the date-format is written as DD/MM/YY. Startdate must be earlier than enddate.");
+                        MessageBox.Show("Startdate and enddate must be written in correct format. Startdate must also be earlier than enddate.");
                     }
+
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all fields.");
             }
         }
 
