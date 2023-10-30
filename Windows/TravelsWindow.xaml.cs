@@ -62,9 +62,8 @@ namespace TravelPal_Newton.Windows
 
         private void btnUserDetailsWindow_Click(object sender, RoutedEventArgs e)
         {
-            UserDetailsWindow userdetailswindow = new();
-            userdetailswindow.Show();
-            Close();
+            AboutUs aboutUs = new AboutUs();
+            aboutUs.Show();
         }
 
         private void btnAddtravel_Click(object sender, RoutedEventArgs e)
