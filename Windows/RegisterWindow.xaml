@@ -24,7 +24,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#3d3477"/>
+                    <Setter Property="Background" Value="#160a5a"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -41,7 +41,7 @@
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#231195" Offset="0.5"/>
-                    <GradientStop Color="#1b0d71" Offset="0.7"/>
+                    <GradientStop Color="#1b0d71" Offset="0.5"/>
                     <GradientStop Color= "MediumSlateBlue" Offset="0.1"/>
                 </LinearGradientBrush>
             </Grid.Background>
@@ -61,14 +61,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBox x:Name="txtRequestedUsername" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" Text="Username" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-            <TextBox Name="txtRequestedPassword" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center" Text="Password" VerticalAlignment="Center"/>
+            <PasswordBox Name="txtRequestedPassword" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="240" FontSize="20" Foreground="#FF323030" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
             <Label Name="lblCountry" Grid.Row="3" Grid.Column="1" Visibility="Hidden" Grid.ColumnSpan="1" Content="Country:" VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Center"/>
             <Button Name="BtnSignUpReady" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource Buttons}" Margin="5"  Content="Confirm" Click="BtnSignUpReady_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ComboBox Name="ComboBoxCountry" Visibility="Hidden"  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="35" Width="220" Margin="10" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
             <Label Name="lblregisterFeedback" FontFamily="Microsoft YaHei UI Light" Foreground="white" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="" FontSize="15"/>
             <Label Content="Requirements:" FontFamily="Microsoft YaHei UI Light" Foreground="white"  Grid.Column="0" FontSize="17" Grid.ColumnSpan="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label FontFamily="Microsoft YaHei UI Light" Foreground="white" Content="  Username and password must contain at least 6 characters (maximum 13 characters) and at least 3 numbers." Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Grid.Row="0" FontSize="14" />
+            <Label FontFamily="Microsoft YaHei UI Light" Foreground="white" Content="  Username and password must contain min. 6 characters (max. 13 characters) and at least 3 numbers." Grid.Column="0" Grid.ColumnSpan="6" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" Grid.Row="0" FontSize="16" />
             <Button x:Name="btnGo" Content="OK" Visibility="Hidden" Style="{StaticResource Buttons}" Margin="15" Width="50" Height="40" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnGo_Click"/>
+            <Button Name="btnReturn" Style="{StaticResource Buttons}" Width="70" Height="50" Grid.Column="5" Grid.Row="5" Content="Return" Click="btnReturn_Click" HorizontalAlignment="Center" />
         </Grid>
     </Border>
 </Window>

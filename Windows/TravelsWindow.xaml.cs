@@ -96,5 +96,30 @@ namespace TravelPal_Newton.Windows
             mainWindow.Show();
             Close();
         }
+
+        private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
+        {
+            Travel travel = (Travel)ListViewOverview.SelectedItem;
+            if (travel != null)
+            {
+                string sMessageBoxText = "Are you sure you want to remove this travel?";
+                string sCaption = "Remove travel";
+
+                MessageBoxButton btnMessageBox = MessageBoxButton.YesNoCancel;
+                MessageBoxImage iconMessageBox = MessageBoxImage.Warning;
+
+                MessageBoxResult resultMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, iconMessageBox);
+
+                switch (resultMessageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        observableTravels.Remove(travel);
+                        TravelManager.travels.Remove(travel);
+                        break;
+                }
+
+
+            }
+        }
     }
 }

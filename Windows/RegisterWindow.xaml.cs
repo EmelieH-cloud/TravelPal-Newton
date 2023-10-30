@@ -29,7 +29,7 @@ namespace TravelPal_Newton.Windows
         private void BtnSignUpReady_Click(object sender, RoutedEventArgs e)
         {
             string username = txtRequestedUsername.Text;
-            string password = txtRequestedPassword.Text;
+            string password = txtRequestedPassword.Password.ToString();
 
             // om någon av dessa inputs är empty, null eller innehåller whitespace...
             if (!validation.CheckEmptyNullWhiteSpace(username) || !validation.CheckEmptyNullWhiteSpace(password))
@@ -63,7 +63,6 @@ namespace TravelPal_Newton.Windows
                         bool isNotAvailable = UserManager.CheckAvailability(username, password);
                         if (!isNotAvailable)
                         {
-                            lblregisterFeedback.Foreground = Brushes.Green;
                             lblregisterFeedback.Content = "Username and password is valid! Please choose your country.";
                             // sätt som globala variabler för tillgänglighetens skull. 
                             chosenUsername = username;
@@ -111,6 +110,14 @@ namespace TravelPal_Newton.Windows
                 lblCountry.Visibility = Visibility.Hidden;
 
             }
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainwindow = new();
+            mainwindow.Show();
+            Close();
+
         }
     }
 }
