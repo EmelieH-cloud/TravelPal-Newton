@@ -43,8 +43,8 @@
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#231195" Offset="0.6"/>
-                    <GradientStop Color="#1b0d71" Offset="0.4"/>
-                    <GradientStop Color= "MediumSlateBlue" Offset="0.4"/>
+                    <GradientStop Color="#1b0d71" Offset="0.8"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.2"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -64,6 +64,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Who are we?" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light" FontSize="36" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="4" Margin="10"  Foreground="white" FontFamily="Microsoft YaHei UI Light" Grid.Row="1" VerticalAlignment="Bottom" Text="We make it easier to manage all your travels in one place." FontSize="22"/>
+            <Button Name="btnClose" Style="{StaticResource Buttons}" Margin="6" Content="Close" Width="80" Grid.Column="5" HorizontalAlignment="Right" Click="btnClose_Click"/>
         </Grid>
     </Border>
 </Window>
