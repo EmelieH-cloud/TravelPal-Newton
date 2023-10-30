@@ -28,6 +28,12 @@ namespace TravelPal_Newton.Create
             return item;
         }
 
+        public TravelDocument CreateTravelDocument(bool required, string name)
+        {
+            TravelDocument traveldocument = new(required, name);
+            return traveldocument;
+        }
+
 
         public Vacation CreateVacation(string startdate, string enddate, string destination, int travelers, Country country, bool inclusive)
         {

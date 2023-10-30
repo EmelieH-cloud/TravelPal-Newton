@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TravelPal_Newton.Create;
 using TravelPal_Newton.Enums;
+using TravelPal_Newton.Interfaces;
 using TravelPal_Newton.Managers;
 using TravelPal_Newton.Models;
 using Validation = TravelPal_Newton.Validator.Validation;
@@ -17,8 +18,8 @@ namespace TravelPal_Newton.Windows
     {
         Validation validation = new Validation();
         CreateObjects create = new();
+        List<PackingListItem> packinglist = new();
         Travel? addedTravel;
-
 
         public AddTravelWindow()
         {
@@ -72,17 +73,17 @@ namespace TravelPal_Newton.Windows
                 // casta comboBoxItem till Enum.Country 
                 Country country = (Country)ComboTravelCountry.SelectedItem;
 
-                // kolla om det går att konvertera antal travelers till en int. 
+                // "går det att konvertera antal travelers till en int?"
                 if (validation.StringToInt(travelers))
                 {
                     //konvertera isåfall...
                     int intTravelers = Convert.ToInt32(travelers);
 
-                    // skapa en bool för vardera datum som kommer vara true om datumen är i korrekt format. 
+                    // skapa en bool för vardera datum, kommer vara true om båda datum är i korrekt format. 
                     bool startdateFormat = validation.CorrectDateFormat(startdate);
                     bool enddateFormat = validation.CorrectDateFormat(enddate);
 
-                    // skapa en bool som kommer vara true om datumen är giltliga
+                    // skapa en bool, kommer vara true om datumen är giltliga
                     bool dateIsValid = DateIsValid(startdate, enddate);
 
                     // fortsätt endast om datumen är skrivna i rätt format, datumen är giltliga och checkboxen syns. 
@@ -153,7 +154,8 @@ namespace TravelPal_Newton.Windows
                             User userCast = (User)UserManager.signedInUser;
                             AddTravelToUser(travel, userCast);
                             addedTravel = travel;
-
+                            // avgör om länderna är utanför eller innanför EU 
+                            checkEUcountries();
                         }
                     }
 
@@ -211,6 +213,135 @@ namespace TravelPal_Newton.Windows
 
         }
 
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            // göm confirm-knappen
+            BtnConfirm.Visibility = Visibility.Hidden;
+            // visa add-knappen
+            btnAddTravelDocument.Visibility = Visibility.Visible;
+
+            if (CheckTravelDocument.IsChecked == true)
+            {
+                // visa checkboxen "required?" 
+                CheckRequired.Visibility = Visibility.Visible;
+            }
+
+            else if (CheckTravelDocument.IsChecked == false)
+            {
+                // visa textboxen för quantity 
+                txtQuantity.Visibility = Visibility.Visible;
+            }
+
+        }
+
+        private void checkEUcountries()
+        {
+            if (UserManager.signedInUser?.GetType() == typeof(User) && addedTravel != null)
+            {
+                User userCast = (User)UserManager.signedInUser;
+                Country livingCountry = userCast.Location;
+                Country travelCountry = addedTravel.TheCountry;
+                bool userLivesinEU = false;
+                bool travelCountryIsInEU = false;
+
+                foreach (Country EUcountry in Enum.GetValues(typeof(EuropeanCountry)))
+                {
+                    if (livingCountry == EUcountry)
+                    {
+                        userLivesinEU = true;
+                    }
+
+                    if (travelCountry == EUcountry)
+                    {
+                        travelCountryIsInEU = true;
+                    }
+                } // loop avslutas
+                  // kalla på metoden som avgör huruvida ett pass automatiskt ska läggas till i packlistan. 
+                PassportHandler(userLivesinEU, travelCountryIsInEU);
+            }
+        }
+
+        private void PassportHandler(bool userLivesinEU, bool travelCountryIsInEU)
+        {
+            // Om användaren bor utanför EU, oavsett destinationsland ska ett pass (med required true)
+            // läggas till i packlistan
+            if (!userLivesinEU)
+            {
+                TravelDocument RequiredPassport = new(true, "Passport");
+                packingListView.Items.Add(RequiredPassport.GetInfo());
+                packinglist.Add(RequiredPassport);
+            }
+
+            //Om resan går till ett land inom EU och användaren bor inom EU, ska ett
+            //TravelDocument med name “Passport” (med required false) läggas till i packlistan.
+            else if (userLivesinEU && travelCountryIsInEU)
+            {
+                TravelDocument NonRequiredPassport = new(false, "Passport");
+                packingListView.Items.Add(NonRequiredPassport.GetInfo());
+                packinglist.Add(NonRequiredPassport);
+            }
+
+            // Om resan går till ett land utanför EU och användaren bor inom EU ska ett TravelDocument
+            // med name “Passport” (med required true) läggas till i packlistan.
+
+            else if (userLivesinEU && !travelCountryIsInEU)
+            {
+                TravelDocument RequiredPassport = new(true, "Passport");
+                packingListView.Items.Add(RequiredPassport.GetInfo());
+                packinglist.Add(RequiredPassport);
+            }
+
+        }
+
+
+        private void btnAddTravelDocument_Click(object sender, RoutedEventArgs e)
+        {
+            string name = txtItemName.Text;
+
+            // skapa ett required traveldocument
+            if (CheckRequired.IsChecked == true)
+            {
+                TravelDocument traveldocument = create.CreateTravelDocument(true, name);
+                packingListView.Items.Add(traveldocument.GetInfo());
+                packinglist.Add(traveldocument);
+            }
+
+            // skapa ett non-required traveldocument
+            else if (CheckTravelDocument.IsChecked == false)
+            {
+                TravelDocument traveldocument = create.CreateTravelDocument(false, name);
+                packingListView.Items.Add(traveldocument.GetInfo());
+                packinglist.Add(traveldocument);
+            }
+
+            // skapa ett vanligt item
+            else if (txtQuantity.Visibility == Visibility.Visible)
+            {
+                string quantity = txtQuantity.Text;
+                if (validation.StringToInt(quantity))
+                {
+                    OtherItem item = create.CreateItem(name, quantity);
+                    packingListView.Items.Add(item);
+                    packinglist.Add(item);
+                }
+
+                else if (!validation.StringToInt(quantity))
+                {
+                    MessageBox.Show("Please make sure to provide the quantity as a number.");
+                }
+
+            }
+
+        }
+
+        private void btnPackingListComplete_Click(object sender, RoutedEventArgs e)
+        {
+            if (packinglist.Count > 0 && addedTravel != null)
+            {
+                addedTravel.packingList = packinglist;
+            }
+
+        }
     }
 }
 

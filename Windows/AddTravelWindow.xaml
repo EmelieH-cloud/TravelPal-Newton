@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="AddTravelWindow" Height="550" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
+        Title="AddTravelWindow" Height="650" Width="990" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <Style x:Key="Buttons" TargetType="Button">
             <Setter Property="FontSize" Value="22"/>
@@ -46,6 +46,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -78,14 +80,24 @@
             <Label Name="lbldest"  Content="Destination:" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
             <Label Name="lblstartd" Content="Startdate:" Grid.Row="5"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
             <Label Name="lblend" Content="Enddate:" Grid.Row="6" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" FontSize="20" FontFamily="Microsoft YaHei UI Light" />
-            <TextBox Name="txtMeetingDetails" Visibility="Hidden"  FontFamily="Segoe UI Historic" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2"/>
+            <TextBox Name="txtMeetingDetails" Visibility="Hidden"  FontFamily="Segoe UI Historic" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"/>
             <CheckBox Name="checkInclusive"  Content="All inclusive?" Visibility="Hidden"  Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="Segoe UI Historic"/>
             <TextBox Name="txtTravelers" Grid.Row="3" Grid.Column="1" Margin="15" Width="100"/>
             <TextBox Name="txtDestination" Grid.Row="4" Grid.Column="1"  Margin="15"/>
             <TextBox Name="txtStartDate"  Grid.Row="5" Grid.Column="1" Margin="15" />
             <TextBox Name="txtEndDate"  Grid.Row="6" Grid.Column="1" Margin="15"/>
-            <Button Name="btnReturn" Grid.Column="5" Width="80" Grid.ColumnSpan="2" Grid.Row="6" Content="Return" Style="{StaticResource Buttons}" Click="btnReturn_Click"/>
-            <Button Name="btnFinish" Visibility="Hidden" Click="btnfinish_Click" Grid.ColumnSpan="2" Content="Create travel" Width="150" Style="{StaticResource Buttons}" Grid.Column="2" Grid.Row="6"/>
+            <TextBox Name="txtItemName" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Margin="10"/>
+            <TextBox Name="txtQuantity" Visibility="Hidden" Grid.Row="6" Grid.Column="4" />
+            <Button Name="btnReturn" Margin="10" Grid.Column="6" Width="80" Grid.ColumnSpan="2" Grid.Row="6" Content="Return" Style="{StaticResource Buttons}" Click="btnReturn_Click" HorizontalAlignment="Right"/>
+            <Button Name="btnFinish" Visibility="Hidden"  Click="btnfinish_Click" Grid.ColumnSpan="2" Content="Create travel" Width="150" Style="{StaticResource Buttons}" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left"/>
+            <Button Name="BtnConfirm" Grid.Column="7" Content="Confirm" Grid.Row="4" Width="90" Margin="10" Style="{StaticResource Buttons}" HorizontalAlignment="Right" Click="BtnConfirm_Click"/>
+            <Button Name="btnAddTravelDocument" Visibility="Hidden" Content="Add" Grid.Column="7" Grid.Row="5" Style="{StaticResource Buttons}" Width="90" Click="btnAddTravelDocument_Click"/>
+            <Button Name="btnPackingListComplete" Grid.Column="6" Grid.ColumnSpan="2" Width="120" Grid.Row="3" Content="Completed" Style="{StaticResource Buttons}" Click="btnPackingListComplete_Click" />
+            <Label Content="Name of item:" Grid.Column="3" Grid.Row="4" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <CheckBox Name="CheckTravelDocument" Content="Traveldocument?" Grid.Row="4" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <CheckBox Name="CheckRequired" Visibility="Hidden" Content="Required?" Grid.Row="5" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ListView Name="packingListView" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" />
+     
         </Grid>
     </Border>
 </Window>
