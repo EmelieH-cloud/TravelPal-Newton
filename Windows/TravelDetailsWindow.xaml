@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="TravelDetailsWindow" Height="750" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent">
+        Title="TravelDetailsWindow" Height="650" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <Style x:Key="Labels" TargetType="Label">
             <Setter Property="FontSize" Value="36"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="purple"/>
+            <Setter Property="Foreground" Value="white"/>
         </Style>
         <Style x:Key="Buttons" TargetType="Button">
             <Setter Property="FontSize" Value="22"/>
@@ -37,17 +37,19 @@
     <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color= "MintCream" Offset="0.2"/>
-                <GradientStop Color="#8a7af0" Offset="0.7"/>
-                <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+                <GradientStop Color= "#8479c7" Offset="0.3"/>
+                <GradientStop Color="#7a67ee" Offset="0.1"/>
+                <GradientStop Color="#5547ab" Offset="0.5"/>
+                <GradientStop Color= "MediumSlateBlue" Offset="0.5"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
         <Grid Name="TravelDetailsGrid">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color= "MintCream" Offset="0.2"/>
-                    <GradientStop Color="#8a7af0" Offset="0.7"/>
-                    <GradientStop Color= "MediumSlateBlue" Offset="0.8"/>
+                    <GradientStop Color= "#8479c7" Offset="0.5"/>
+                    <GradientStop Color="#7a67ee" Offset="0.5"/>
+                    <GradientStop Color="#5547ab" Offset="0.5"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.3"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
@@ -67,34 +69,34 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Travel type: " Style="{StaticResource Labels}"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Leelawadee UI Semilight" />
-            <Label Name="lblTravelersFeedback"  FontSize="14" Content="test" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom" VerticalAlignment="Top"/>
-            <Label Name="lblCountryFeedback" Content="test" Grid.Row="1" Grid.Column="0" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
-            <Label Name="lblEndDateFeedback" Content="test" Grid.Row="2" Grid.Column="3" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
-            <Label Name="lblDestinationFeedback" Content="test" Grid.Row="2" Grid.Column="0"  Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
-            <Label Name="lblStartDateFeedback" Content="test" Grid.Row="1" Grid.Column="3" Height="30"  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label Name="lblFormatInstruction"  Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="3" VerticalAlignment="Bottom" FontSize="14" />
-            <Label Content="Country:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
-            <Label Content="Destination:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" />
-            <Label Content="Travelers:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="3" HorizontalContentAlignment="Center" FontSize="20" VerticalContentAlignment="Center"/>
-            <Label Content="Traveldays:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
-            <Label Content="Enddate:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20"/>
-            <Label Content="Startdate:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20"/>
-            <Label Content="PackingList: " FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="3" Grid.Column="3" FontSize="18" VerticalAlignment="Bottom"/>
+            <Label Content="Travel type: " Style="{StaticResource Labels}" Grid.Row="1"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontFamily="Leelawadee UI Semilight" />
+            <Label Name="lblTravelersFeedback" FontSize="14" Content="" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Bottom" VerticalAlignment="Top"/>
+            <Label Name="lblCountryFeedback" Content="" Grid.Row="2" Grid.Column="0" Height="30" Grid.ColumnSpan="2" VerticalAlignment="Top" Foreground="#FFFEFEFE"/>
+            <Label Name="lblEndDateFeedback" Content="" Grid.Row="2" Grid.Column="3" Height="30" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="14"/>
+            <Label Name="lblDestinationFeedback" Content="" Grid.Row="3" Grid.Column="0"  Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <Label Name="lblStartDateFeedback" Content="" Grid.Row="1" Grid.Column="3" Height="30"  VerticalContentAlignment="Center" FontSize="14" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Name="lblFormatInstruction"  Content="Required format: DD/MM/YYYY" Grid.ColumnSpan="2" Grid.Column="4" VerticalAlignment="Bottom" FontSize="12" HorizontalContentAlignment="Right" Foreground="#FFFBF9F9" />
+            <Label Content="Country:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Content="Destination:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20" />
+            <Label Content="Travelers:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="4" HorizontalContentAlignment="Center" FontSize="20" VerticalContentAlignment="Center"/>
+            <Label Content="Traveldays:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Content="Enddate:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="2" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Content="Startdate:" FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="20"/>
+            <Label Content="PackingList: " FontFamily="Leelawadee UI Semilight" Style="{StaticResource Labels}" Grid.Row="3" Grid.Column="3" FontSize="18" VerticalAlignment="Bottom" HorizontalContentAlignment="Right"/>
             <Label Name="lbldetails" Content="Meeting info:" Grid.Column="3" Visibility="Hidden" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Labels}" FontFamily="Leelawadee UI Semilight" FontSize="18" VerticalContentAlignment="Bottom"/>
-            <ListView Name="ListViewPackingList" Grid.Row="3" Grid.RowSpan="2"  Grid.Column="4" Grid.ColumnSpan="2" Height="70"  Background="white"/>
-            <ListView Name="ListViewMeetingDetails" Visibility="Hidden" Grid.Row="4" Height="60" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2"/>
-            <TextBox Name="txtTravelType" Margin="15" Grid.Column="1" Grid.ColumnSpan="2" Height="40" Width="180" HorizontalAlignment="Left"/>
-            <TextBox x:Name="txtCountry" Height="40" Grid.Row="1" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtDestination" Height="40" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtTravelers" Height="40" Grid.Row="3" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox x:Name="txtTravelDays" Height="40" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
-            <TextBox Name="txtStartDate" Height="40" Grid.Row="1" Grid.Column="4"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
-            <TextBox Name="txtEndDate" Height="40" Grid.Row="2" Grid.Column="4" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
-            <Button Name="btnEdit" Content="Edit" Height="40" Width="70" Margin="10" Grid.Column="5" Grid.Row="6" Style="{StaticResource Buttons}" Click="btnEdit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <ListView Name="ListViewPackingList" Margin="8" Grid.Row="3" Grid.RowSpan="2"  Grid.Column="4" Grid.ColumnSpan="2" Height="70"  Background="white"/>
+            <ListView Name="ListViewMeetingDetails" Margin="8" Visibility="Hidden" Grid.Row="4" Height="60" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <TextBox Name="txtTravelType" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Margin="15" Grid.Column="1" Grid.ColumnSpan="2" Height="40" Width="180" HorizontalAlignment="Left" TextAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="txtCountry" HorizontalContentAlignment="Center" Height="40" Grid.Row="2" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtDestination" HorizontalContentAlignment="Center" Height="40" Grid.Row="3" Grid.Column="1" Margin="15" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelers" HorizontalContentAlignment="Center" Height="40" Grid.Row="4" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox x:Name="txtTravelDays" HorizontalContentAlignment="Center" Height="40" Grid.Row="5" Grid.Column="1" Margin="15" Width="65" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Padding="5" IsEnabled="False"/>
+            <TextBox Name="txtStartDate"  Height="40" Grid.Row="1" Grid.Column="5"  Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False"/>
+            <TextBox Name="txtEndDate" Height="40" Grid.Row="2" Grid.Column="5" Margin="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" />
+            <Button Name="btnEdit" Content="Edit" Height="40" Width="70" Margin="10" Grid.Column="5" Grid.Row="6" Style="{StaticResource Buttons}" Click="btnEdit_Click" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
             <Button Name="btnOK" Content="OK"  Grid.Column="5"  Height="40"  Visibility="Hidden"  Width="70" Margin="10" Grid.Row="6" Style="{StaticResource Buttons}" Click="btnOK_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
             <Button Name="btnReturn" Height="40" Content="Return" Style="{StaticResource Buttons}" Grid.Row="6" Margin="10" Grid.Column="4" Width="90" Click="btnReturn_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-            <CheckBox Name="checkAllinclusive"  IsChecked="{Binding Path=AllInclusive}" Content="All inclusive" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Right" FontSize="18"/>
+            <CheckBox Name="checkAllinclusive"  IsChecked="{Binding Path=AllInclusive}" Content="All inclusive" Grid.Column="5" Grid.Row="3" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,6,24,0" Foreground="#FFF8F8F8"/>
         </Grid>
     </Border>
 </Window>
