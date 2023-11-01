@@ -19,14 +19,13 @@ namespace TravelPal_Newton
         {
             InitializeComponent();
 
-            // Demo-users
+            // Demo-user
             User user = (User)UserManager.users[0];
 
-            // Demo-items 
+            // Demo-packinglistitems 
             PackingListItem item1 = PackingItemsManager.packingList_1[0];
             PackingListItem item2 = PackingItemsManager.packingList_1[1];
             PackingListItem item3 = PackingItemsManager.packingList_1[2];
-
             // Demo-packinglist
             List<PackingListItem> packinglist1 = new();
             packinglist1.Add(item1);
@@ -58,15 +57,14 @@ namespace TravelPal_Newton
             // kontrollera att input inte är null, empty eller innehåller whitespace. 
             if (validation.CheckEmptyNullWhiteSpace(username) && validation.CheckEmptyNullWhiteSpace(password))
             {
-                // om input är ok, gå vidare med att leta efter detta username och password i listan av registrerade users.
+                // om input är ok, gå vidare och leta efter detta username och password i listan av registrerade users.
                 bool userExists = UserManager.SignInUser(username, password);
                 if (userExists)
                 {
-                    // om användaren finns, öppna nytt fönster, skicka med username + password. 
+                    // om användaren finns, öppna nytt fönster och skicka med username + password. 
                     TravelsWindow travelswindow = new(username, password);
                     travelswindow.Show();
                     Close();
-
                 }
 
                 else if (!userExists)

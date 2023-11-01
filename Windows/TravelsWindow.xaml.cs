@@ -15,9 +15,9 @@ namespace TravelPal_Newton.Windows
 
         /*
          ObservableCollection----------------------------------------------------------------
-         Om en listview kopplas direkt till en vanlig lista så kommer innehållet i listview
+         Om en listview kopplas direkt till en vanlig list så kommer innehållet i listviewn
         inte att updateras när listan uppdateras.  Eftersom jag vill att listview ska uppdateras 
-        "automatiskt" så använder jag ObservableCollection. 
+         automatiskt så använder jag ObservableCollection. 
          -----------------------------------------------------------------------------------*/
 
         public TravelsWindow(string username, string password)
@@ -30,16 +30,16 @@ namespace TravelPal_Newton.Windows
 
             if (UserManager.signedInUser?.GetType() == typeof(User))
             {
-                // vanlig användare är inloggad, dvs det går bra att casta till en user. 
+                // vanlig användare är inloggad, det går bra att casta till en user. 
                 User userCast = (User)UserManager.signedInUser;
                 lblUsername.Content = userCast.Username;
 
-                // undersök om användaren redan har resor tillagda. 
+                // undersök om user redan har resor tillagda. 
                 if (userCast.travels != null)
                 {
                     foreach (var travel in userCast.travels)
                     {
-                        // om resor är tillagda, lägg till dessa i vår observablecollection. 
+                        // om resor är tillagda, lägg till dessa i observablecollection. 
                         observableTravels.Add(travel);
                     }
                 }
@@ -47,7 +47,7 @@ namespace TravelPal_Newton.Windows
 
             else if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
-                // En admin kan inte lägga till resor. 
+                // En admin ska inte kunna lägga till resor, gömmer add-knappen. 
                 btnAddtravel.Visibility = Visibility.Hidden;
                 btnAddtravel.IsEnabled = false;
                 Admin adminCast = (Admin)UserManager.signedInUser;
@@ -55,7 +55,7 @@ namespace TravelPal_Newton.Windows
 
                 foreach (Travel travel in TravelManager.travels)
                 {
-                    observableTravels.Add(travel);
+                    observableTravels.Add(travel); // visa alla resor för admin 
                 }
             }
         }

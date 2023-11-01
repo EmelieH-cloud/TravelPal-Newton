@@ -21,6 +21,8 @@ namespace TravelPal_Newton.Windows
         public TravelDetailsWindow(Travel travel, string username, string password)
         {
             InitializeComponent();
+
+            // visa detaljer om vald resa: 
             selectedTravel = travel;
             txtCountry.Text = travel.TheCountry.ToString();
             txtDestination.Text = travel.Destination.ToString();
@@ -32,13 +34,13 @@ namespace TravelPal_Newton.Windows
 
             if (travel.GetType().Name.Equals("Vacation"))
             {
-                // visa checkbox för "all inclusive" om traveltypen är Vacation. 
+                // visa checkbox för "all inclusive" om traveltype är Vacation. 
                 checkAllinclusive.Visibility = Visibility.Visible;
                 checkAllinclusive.IsEnabled = false;
                 checkAllinclusive.DataContext = travel;
             }
 
-            // om typen är en worktrip, printa meetingdetails. 
+            // Om typen är en worktrip, printa meetingdetails. 
             if (travel.GetType().Name.Equals("Worktrip"))
             {
                 Worktrip work = (Worktrip)travel;
@@ -49,11 +51,11 @@ namespace TravelPal_Newton.Windows
 
             if (UserManager.signedInUser?.GetType() == typeof(Admin))
             {
-                // admin ska inte kunna redigera resor 
+                // En admin ska inte kunna redigera resor 
                 btnEdit.Visibility = Visibility.Hidden;
             }
 
-            // om det finns en packinglist, loopa igenom denna och printa infon om varje item. 
+            // Mm det finns en packinglist, loopa igenom denna och printa infon om varje item. 
             if (travel.packingList != null && travel.packingList.Count > 0)
             {
                 foreach (PackingListItem item in travel.packingList)
@@ -65,7 +67,7 @@ namespace TravelPal_Newton.Windows
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            // göm knappen
+            // Göm Edit-knappen
             btnEdit.Visibility = Visibility.Hidden;
 
             // Visa nedan element i UI 
@@ -107,7 +109,7 @@ namespace TravelPal_Newton.Windows
             // uppdatera Country------------------------------------------------------
             if (!updateCountry)
             {
-                // kolla om angivet land finns i Enums.Country.
+                // kolla om givet land finns i Enums.Country.
                 bool newCountryIsAvailable = validation.CountryExists(newCountry);
                 if (newCountryIsAvailable)
                 {
@@ -119,7 +121,7 @@ namespace TravelPal_Newton.Windows
                 }
                 else if (!newCountryIsAvailable)
                 {
-                    lblCountryFeedback.Content = "That country is unfortunately not available.";
+                    lblCountryFeedback.Content = "Chosen country is unfortunately not available.";
                     txtCountry.Clear();
                 }
             }

@@ -98,7 +98,10 @@ namespace TravelPal_Newton.Windows
                 Country selectedCountry = (Country)ComboBoxCountry.SelectedItem;
                 User user = new(chosenUsername, chosenPassword, selectedCountry);
                 UserManager.users.Add(user);
-                MessageBox.Show("A new user was created!");
+
+
+
+                MessageBox.Show("New user: " + user.Username + ", " + "lives in: " + user.Location);
 
                 // sätt tillbaka startvärden på "visibility" och "IsEnabled" 
                 btnGo.Visibility = Visibility.Hidden;

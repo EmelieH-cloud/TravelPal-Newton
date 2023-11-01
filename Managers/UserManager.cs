@@ -18,7 +18,7 @@ namespace TravelPal_Newton.Managers
 
 
         //RemoveUser()
-        // Använder SignInUser() för att kontrollera att användaren finns. Om den finns, tas användaren bort.
+        // Använder SignInUser() för att kontrollera att användaren finns. Om den finns så tas användaren bort.
         public static void RemoveUser(IUser user)
         {
             string username = user.Username;
@@ -32,7 +32,7 @@ namespace TravelPal_Newton.Managers
         }
 
         // CheckAvailability()
-        // Söker igenom listan med registrerade användare för att kontrollera om användaren redan finns.
+        // Söker igenom listan med registrerade användare för att kontrollera om användaren finns.
         public static bool CheckAvailability(string username, string password)
         {
             bool usernameAndPasswordIsTaken = false;

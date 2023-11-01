@@ -20,5 +20,8 @@ namespace TravelPal_Newton.Models
             Password = password;
             Location = location;
         }
+
+
+
     }
 }

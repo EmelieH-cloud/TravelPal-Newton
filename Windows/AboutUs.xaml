@@ -63,9 +63,19 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="Who are we?" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light" FontSize="36" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="0" Grid.ColumnSpan="4" Margin="10"  Foreground="white" FontFamily="Microsoft YaHei UI Light" Grid.Row="1" VerticalAlignment="Bottom" Text="We make it easier to manage all your travels in one place." FontSize="22"/>
+            <Label Content="Why TravelPal?" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light" FontSize="24" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="5" Margin="10"  Foreground="white" FontFamily="Microsoft YaHei UI Light" Grid.Row="1" VerticalAlignment="Center" Text="TravelPal makes it easier to keep track of all your travels - be it vacations, worktrips or just spontanious trips." FontSize="15" HorizontalAlignment="Center"/>
+            <Label Content="Functionality" Grid.Row="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light" FontSize="24" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
             <Button Name="btnClose" Style="{StaticResource Buttons}" Margin="6" Content="Close" Width="80" Grid.Column="5" HorizontalAlignment="Right" Click="btnClose_Click"/>
+            <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Create a personal account" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Overview all your travels" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Create a packinglist for each trip" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Edit travels (not for admin users)" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Remove travels" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Add meeting details for worktrips" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Add all-inclusive for vacations" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Add travels" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Foreground="white" FontFamily="Microsoft YaHei UI Light"   VerticalAlignment="Center" Text="-Automated passport requirements" HorizontalAlignment="Center" FontSize="18"/>
         </Grid>
     </Border>
 </Window>
