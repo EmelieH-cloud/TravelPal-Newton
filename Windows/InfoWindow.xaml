@@ -1,0 +1,44 @@
+﻿<Window x:Class="TravelPal_Newton.Windows.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelPal_Newton.Windows"
+        mc:Ignorable="d"
+        Title="InfoWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen"  WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+    <Border CornerRadius="35" BorderThickness="24">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#8a7af0" Offset="0.2"/>
+                <GradientStop Color="#1b0d71" Offset="0.5"/>
+                <GradientStop Color= "MediumSlateBlue" Offset="0.7"/>
+                <GradientStop Color= "MediumSlateBlue" Offset="0.3"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#6553d9" Offset="0.2"/>
+                    <GradientStop Color="#231195" Offset="0.4"/>
+                    <GradientStop Color="#1b0d71" Offset="0.7"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <TextBlock Text="How to use TravelPal" FontFamily="Microsoft YaHei UI Light" Grid.Row="0" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+            <TextBlock Margin="5" Text="When using TravelPal you can register travels of three types: 'Vacation', 'Worktrip' or unspecified 'Travel'. All travels must have a type, country, destination, startdate and enddate." FontFamily="Microsoft YaHei UI Light" Grid.Row="1" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" TextWrapping="Wrap"/>
+            <TextBlock  Text="After creating a travel there is an option to add items to a packinglist. Passport requirements are generated automatically, but the user must manually press 'register packinglist' for it to be saved." FontFamily="Microsoft YaHei UI Light" Grid.Row="2" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" TextWrapping="Wrap"/>
+        </Grid>
+        </Border>
+</Window>

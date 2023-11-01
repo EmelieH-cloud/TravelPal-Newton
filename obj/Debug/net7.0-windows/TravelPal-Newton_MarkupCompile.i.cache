@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\User\repos\Newton\TravelPal-Newton\App.xaml
-6836479278
+71205062099
 
-26-1713075079
+27-1398698680
 198-759771931
-MainWindow.xaml;Windows\AddTravelWindow.xaml;Windows\RegisterWindow.xaml;Windows\TravelDetailsWindow.xaml;Windows\TravelsWindow.xaml;Windows\UserDetails.xaml;
+MainWindow.xaml;Windows\AddTravelWindow.xaml;Windows\InfoWindow.xaml;Windows\RegisterWindow.xaml;Windows\TravelDetailsWindow.xaml;Windows\TravelsWindow.xaml;Windows\UserDetails.xaml;
 
 True
 

@@ -10,6 +10,9 @@
     <Compile Update="Windows\AddTravelWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\InfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\RegisterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AddTravelWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\InfoWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\RegisterWindow.xaml">
