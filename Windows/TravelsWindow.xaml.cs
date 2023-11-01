@@ -60,11 +60,7 @@ namespace TravelPal_Newton.Windows
             }
         }
 
-        private void btnUserDetailsWindow_Click(object sender, RoutedEventArgs e)
-        {
-            AboutUs aboutUs = new AboutUs();
-            aboutUs.Show();
-        }
+
 
         private void btnAddtravel_Click(object sender, RoutedEventArgs e)
         {
@@ -120,6 +116,22 @@ namespace TravelPal_Newton.Windows
             {
                 MessageBox.Show("Please select a travel in the list.");
             }
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            string divider = "---------------------------How to use this app---------------------------\n\n";
+            string message = "---- How to add a travel ----\n Go to 'Add Travel' and fill in all of the fields.\n\n";
+            string packinglistInfo = "---- How to create a packinglist ----\n" +
+                "\n1. Go to 'Add Travel'" +
+                "\n2. Once you have created a travel, you will automatically be asked to provide a packinglist." +
+                "\n3. Enter the name of each packinglist-item and check the box 'Traveldocument' if the item is a traveldocument." +
+                "\n4. If you have chosen a traveldocument, you will then be asked if this document is required. " +
+                "If you have not chosen a traveldocument, you will instead be asked to specify the quantity." +
+                "\n Note 1: passport requirements will be automatically added to your packinglist. " +
+                "\n Note 2: the packinglist wont be saved unless you select 'Register packinglist' when finished.";
+
+            MessageBox.Show(divider + message + packinglistInfo);
         }
     }
 }

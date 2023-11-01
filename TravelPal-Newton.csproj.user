@@ -7,9 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Windows\AboutUs.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Windows\AddTravelWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,9 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Windows\AboutUs.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AddTravelWindow.xaml">
