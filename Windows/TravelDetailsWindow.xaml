@@ -37,7 +37,7 @@
     <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color= "#8479c7" Offset="0.3"/>
+                <GradientStop Color= "#1b0d71" Offset="0.3"/>
                 <GradientStop Color="#7a67ee" Offset="0.1"/>
                 <GradientStop Color="#5547ab" Offset="0.5"/>
                 <GradientStop Color= "MediumSlateBlue" Offset="0.5"/>
@@ -46,10 +46,10 @@
         <Grid Name="TravelDetailsGrid">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color= "#8479c7" Offset="0.5"/>
+                    <GradientStop Color= "#1b0d71" Offset="0.2"/>
                     <GradientStop Color="#7a67ee" Offset="0.5"/>
-                    <GradientStop Color="#5547ab" Offset="0.5"/>
-                    <GradientStop Color= "MediumSlateBlue" Offset="0.3"/>
+                    <GradientStop Color="#1b0d71" Offset="0.5"/>
+                    <GradientStop Color= "MediumSlateBlue" Offset="0.7"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
