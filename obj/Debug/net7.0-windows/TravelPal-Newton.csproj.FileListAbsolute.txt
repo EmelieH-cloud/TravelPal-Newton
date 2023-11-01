@@ -28,3 +28,5 @@ C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\Tra
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\TravelDetailsWindow.baml
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\UserDetails.g.cs
 C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\UserDetails.baml
+C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\InfoWindow.g.cs
+C:\Users\User\repos\Newton\TravelPal-Newton\obj\Debug\net7.0-windows\Windows\InfoWindow.baml

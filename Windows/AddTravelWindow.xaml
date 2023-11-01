@@ -65,7 +65,7 @@
                     <GradientStop Color= "MediumSlateBlue" Offset="0.3"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Label Name="lblHeader" Foreground="White" Content="Want to add a travel? Start here!" Grid.Column="0" Grid.ColumnSpan="5" VerticalContentAlignment="Center" FontSize="32" FontFamily="Microsoft YaHei UI Light"  FontWeight="Bold" HorizontalContentAlignment="Right" />
+            <Label Name="lblHeader" Foreground="White" Content="Want to travel? Start here." Grid.Column="0" Grid.ColumnSpan="5" VerticalContentAlignment="Center" FontSize="32" FontFamily="Microsoft YaHei UI Light"  FontWeight="Bold" HorizontalContentAlignment="Center" />
             <Label Content="1. Country:" Foreground="White" Name="lblselCountry" FontFamily="Microsoft YaHei UI Light"  Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" />
             <Label Name="lblSelectTravel" Foreground="White" Grid.ColumnSpan="2" Content="2. Travel type:" FontFamily="Microsoft YaHei UI Light" Grid.Row="2" VerticalContentAlignment="Center" FontSize="16"  />
             <ComboBox Name="ComboTravelCountry" Grid.Row="1" VerticalContentAlignment="Center" Height="40" Margin="10" Grid.Column="1" FontSize="14"/>

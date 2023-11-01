@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="UserDetails" Height="400" Width="600" WindowStyle="None" WindowStartupLocation= "CenterScreen" AllowsTransparency="True" Background="Transparent">
+        Title="UserDetails" Height="330" Width="600" WindowStyle="None" WindowStartupLocation= "CenterScreen" AllowsTransparency="True" Background="Transparent">
     <Window.Resources>
         <Style x:Key="Buttons" TargetType="Button">
             <Setter Property="FontSize" Value="22"/>
@@ -64,6 +64,8 @@
             <TextBox Name="txtuserLocation" Width="200" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Label Content="Username:" Foreground="White" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
             <Label Content="Residence:" Foreground="White" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+            <Label Content="EU member:" Foreground="White" Grid.Column="0" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
+            <Label Name="lblEUmember" Content="" Foreground="White" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" />
         </Grid>
         </Border>
 </Window>

@@ -5,14 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal_Newton.Windows"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="450" Width="500" WindowStartupLocation="CenterScreen"  WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
+        Title="InfoWindow" Height="400" Width="500" WindowStartupLocation="CenterScreen"  WindowStyle="None"  AllowsTransparency="True" Background="Transparent">
     <Border CornerRadius="35" BorderThickness="24">
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#8a7af0" Offset="0.2"/>
                 <GradientStop Color="#1b0d71" Offset="0.5"/>
-                <GradientStop Color= "MediumSlateBlue" Offset="0.7"/>
-                <GradientStop Color= "MediumSlateBlue" Offset="0.3"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
         <Grid>
@@ -39,6 +36,7 @@
             <TextBlock Text="How to use TravelPal" FontFamily="Microsoft YaHei UI Light" Grid.Row="0" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
             <TextBlock Margin="5" Text="When using TravelPal you can register travels of three types: 'Vacation', 'Worktrip' or unspecified 'Travel'. All travels must have a type, country, destination, startdate and enddate." FontFamily="Microsoft YaHei UI Light" Grid.Row="1" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" TextWrapping="Wrap"/>
             <TextBlock  Text="After creating a travel there is an option to add items to a packinglist. Passport requirements are generated automatically, but the user must manually press 'register packinglist' for it to be saved." FontFamily="Microsoft YaHei UI Light" Grid.Row="2" Grid.Column="0" Foreground="white" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" TextWrapping="Wrap"/>
+            <Button Name="btnClosew" Grid.Column="4" Content="X" Width="40" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="18" Click="btnClosew_Click"/>
         </Grid>
         </Border>
 </Window>

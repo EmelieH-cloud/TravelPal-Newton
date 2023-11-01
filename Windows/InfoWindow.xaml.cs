@@ -12,7 +12,9 @@ namespace TravelPal_Newton.Windows
             InitializeComponent();
         }
 
-
-
+        private void btnClosew_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
