@@ -9,8 +9,8 @@ namespace TravelPal_Newton.Managers
     {
         public static List<Travel> travels = new()
         {
-            new Travel("Finnish Sauna", 1, (new DateTime (2024, 02, 20)), (new DateTime(2024, 02,26)), Country.Finland),
-            new Worktrip("Rådhuskällaren", 12, (new DateTime (2023, 12, 22)), (new DateTime(2023, 12,23)), Country.Sweden, "Christmas summit"),
+            new Travel("Helsinki", 1, (new DateTime (2024, 02, 20)), (new DateTime(2024, 02,26)), Country.Finland),
+            new Worktrip("Rådhuskällaren", 12, (new DateTime (2023, 12, 22)), (new DateTime(2023, 12,23)), Country.Sweden, "Conference"),
             new Travel("Ströget", 1, (new DateTime (2024, 02, 20)), (new DateTime(2024, 02,26)), Country.Denmark),
             new Travel("Aiko Sushi", 1, (new DateTime (2024, 02, 20)), (new DateTime(2024, 02,26)), Country.Sweden)
         };

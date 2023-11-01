@@ -14,5 +14,13 @@ namespace TravelPal_Newton.Managers
 
         };
 
+        public static List<PackingListItem> packingList_2 = new()
+        {
+            new OtherItem("Books", 2),
+            new OtherItem("Banana", 1),
+            new OtherItem("Pencil", 1)
+
+        };
+
     }
 }

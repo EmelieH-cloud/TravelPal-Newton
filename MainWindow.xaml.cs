@@ -26,11 +26,20 @@ namespace TravelPal_Newton
             PackingListItem item1 = PackingItemsManager.packingList_1[0];
             PackingListItem item2 = PackingItemsManager.packingList_1[1];
             PackingListItem item3 = PackingItemsManager.packingList_1[2];
+            PackingListItem item4 = PackingItemsManager.packingList_2[0];
+            PackingListItem item5 = PackingItemsManager.packingList_2[1];
+            PackingListItem item6 = PackingItemsManager.packingList_2[2];
+
+
             // Demo-packinglist
             List<PackingListItem> packinglist1 = new();
+            List<PackingListItem> packinglist2 = new();
             packinglist1.Add(item1);
             packinglist1.Add(item2);
             packinglist1.Add(item3);
+            packinglist2.Add(item4);
+            packinglist2.Add(item5);
+            packinglist2.Add(item6);
 
             // Demo-travels
             Travel travel1 = (Travel)TravelManager.travels[0];
@@ -44,8 +53,9 @@ namespace TravelPal_Newton
             // Tilldela travels till user
             user.travels = userTravels;
 
-            // Tilldela packinglist till user 
+            // Tilldela packinglist till travel 
             travel1.packingList = packinglist1;
+            travel2.packingList = packinglist2;
 
         }
 
