@@ -24,7 +24,6 @@ namespace TravelPal_Newton.Windows
         public AddTravelWindow()
         {
             InitializeComponent();
-
             HideAllAddTravelElements();
             HideAllPackingListElements();
 

@@ -6,9 +6,7 @@ using TravelPal_Newton.Models;
 
 namespace TravelPal_Newton.Windows
 {
-    /// <summary>
-    /// Interaction logic for UserDetails.xaml
-    /// </summary>
+
     public partial class UserDetails : Window
     {
         public UserDetails()
